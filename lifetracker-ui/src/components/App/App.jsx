@@ -1,5 +1,5 @@
 import * as React from "react"
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "./App.css"
 import Navbar from "../Navbar/Navbar"
 import LandingPage from "../LandingPage/LandingPage"
@@ -14,8 +14,8 @@ export default function App() {
   return (
     <div className="app">
       <React.Fragment>
-        <Navbar />
         <BrowserRouter>
+        <Navbar />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />

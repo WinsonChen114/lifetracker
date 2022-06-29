@@ -173,18 +173,18 @@ The components in the `App.jsx` file should render the following components (alo
   - [ ] The **`Navbar.jsx`** component
 
     - [X] Should render JSX that is wrapped by a `nav` element with the `className` of `navbar`
-    - [ ] Should render the app's logo:
-      - [ ] It should be an element with the `className` of `logo`.
-      - [ ] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
-      - [ ] Inside that `Link` component should be the application's logo (text or image)
-    - [ ] Should render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route
+    - [X] Should render the app's logo:
+      - [X] It should be an element with the `className` of `logo`.
+      - [X] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
+      - [X] Inside that `Link` component should be the application's logo (text or image)
+    - [X] Should render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route
 
   - [ ] The **`NavLinks.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with a `className` of `nav-links`
     - [ ] Should render a `Link` element from `react-router-dom` for:
-      - [ ] The `/activity` route. It should have a label of `Activity`.
-      - [ ] The `/nutrition` route. It should have a label of `Nutrition`.
+      - [X] The `/activity` route. It should have a label of `Activity`.
+      - [X] The `/nutrition` route. It should have a label of `Nutrition`.
       - [ ] A route for any other resource page
     - [ ] If a valid user is logged in:
       - [ ] It should render an element with the `className` of `logout-button` that calls the `logoutUser` function when clicked.
