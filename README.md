@@ -107,16 +107,16 @@ The components in the `App.jsx` file should render the following components (alo
 - To build out the front-end, start with the `App.jsx` component:
 
   - [ ] **`App.jsx`**
-    - [ ] Should be wrapped by an element with the `className` of `app`
+    - [X] Should be wrapped by an element with the `className` of `app`
     - [ ] The core App component that contains the routes for the app wrapped in Context providers
-    - [ ] Renders the `Navbar` component on every route
+    - [X] Renders the `Navbar` component on every route
     - [ ] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
-      - [ ] `/` - Should render the `Landing.jsx` component
-      - [ ] `/login` - Should render the `LoginPage.jsx` component
-      - [ ] `/register` - Should render the `RegistrationPage.jsx` component
+      - [X] `/` - Should render the `Landing.jsx` component
+      - [X] `/login` - Should render the `LoginPage.jsx` component
+      - [X] `/register` - Should render the `RegistrationPage.jsx` component
       - [ ] `/activity` - Should render the `ActivityPage.jsx` component (only if the user is logged in, otherwise it renders the `AccessForbidden.jsx` component)
       - [ ] `/nutrition/* - should render the `NutritionPage.jsx`component (only if the user is logged in, otherwise it renders the`AccessForbidden.jsx` component)
-      - [ ] `*` - anything else should render the `NotFound` component
+      - [X] `*` - anything else should render the `NotFound` component
   - [ ] To standarize API requests throughout the application, set up an **`ApiClient`** class
 
     - [ ] Start by creating a `constants.js` file at the root of the project
@@ -167,12 +167,12 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`Loading.jsx`** component
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `loading`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `loading`
     - [ ] Should render an element with the `className` of `loading-message` that contains the text `"Loading"`
 
   - [ ] The **`Navbar.jsx`** component
 
-    - [ ] Should render JSX that is wrapped by a `nav` element with the `className` of `navbar`
+    - [X] Should render JSX that is wrapped by a `nav` element with the `className` of `navbar`
     - [ ] Should render the app's logo:
       - [ ] It should be an element with the `className` of `logo`.
       - [ ] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
@@ -181,7 +181,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NavLinks.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with a `className` of `nav-links`
+    - [X] Should render JSX that is wrapped by an element with a `className` of `nav-links`
     - [ ] Should render a `Link` element from `react-router-dom` for:
       - [ ] The `/activity` route. It should have a label of `Activity`.
       - [ ] The `/nutrition` route. It should have a label of `Nutrition`.
@@ -195,7 +195,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LoginForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `login-form`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `login-form`
     - [ ] Should render an input element for the following fields:
       - [ ] `email`
       - [ ] `password`
@@ -215,14 +215,14 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LoginPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `login-page`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `login-page`
     - [ ] Using either a custom hook, context, or manually set state, this component should check to see if a user is already logged in
       - [ ] If the user is already logged in, it should redirect them to the `/activity` page
       - [ ] If no user is authenticated, it should render the `LoginForm.jsx` component and pass it any props it needs
 
   - [ ] The **`RegistrationForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `registration-form`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `registration-form`
     - [ ] Should render an input element for the following fields:
       - [ ] `email`
       - [ ] `username`
@@ -248,14 +248,14 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`RegistrationPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `registration-page`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `registration-page`
     - [ ] Using either a custom hook, context, or manually handled state, this component should check to see if a user is already logged in
       - [ ] If the user is already logged in, it should redirect them to the `/activity` page
       - [ ] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
 
   - [ ] The **`LandingPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `landing-page`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `landing-page`
     - [ ] Should render an element with the `className` of `hero`
       - [ ] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
       - [ ] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
@@ -284,14 +284,14 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`ActivityPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `activity-page`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `activity-page`
     - [ ] It should call the `useActivityContext` hook and extract all the necessary data from it.
     - [ ] If the `isProcessing` flag is `true`, it should render the `Loading.jsx` component
     - [ ] If the `isProcessing` flag is `false`, it should render the `ActivityFeed.jsx` component and pass it the appropriate props
 
   - [ ] The **`ActivityFeed.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `activity-feed`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `activity-feed`
     - [ ] Should accept **at least** the following props:
       - [ ] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
       - [ ] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
@@ -311,7 +311,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`SummaryStat.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `summary-stat`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `summary-stat`
     - [ ] Should accept **at least** the following props:
       - [ ] `stat` - the primary statistic to display
       - [ ] `label` - the unit label assigned to the statistic
@@ -341,7 +341,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-page`
     - [ ] Should render a nested `Routes` component from `react-router-dom`.
       - [ ] There should be multiple `Route` components:
         - [ ] The `/nutrition` route should render the `NutritionOverview.jsx` component
@@ -351,7 +351,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionOverview.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-overview`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-overview`
     - [ ] It should call the `useNutritionContext` hook and extract all the necessary data from it.
       - [ ] If the `error` state variable has a valid string in it, it should render the `error` message inside an element with the `className` of `error`
       - [ ] If the `isLoading` boolean is `true`, it should render the `Loading.jsx` component
@@ -360,7 +360,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionFeed.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-feed`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-feed`
     - [ ] It should receive **at least** the following props:
       - [ ] `nutritions` - an array of `nutrition` items
     - [ ] If the `nutritions` array has no items in it, it should render an empty message that says `Nothing here yet` inside an element with the `className` of `empty-message`
@@ -369,12 +369,12 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionNew.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-new`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-new`
     - [ ] Should render the `NutritionForm.jsx` component and pass it the appropriate props
 
   - [ ] The **`NutritionForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-form`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-form`
     - [ ] Should render an input element for the following fields:
       - [ ] `name` - name of the nutrition item (defaults to an empty string)
       - [ ] `calories` - number of calories in the nutrition item (defaults to 1)
@@ -397,7 +397,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionDetail.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-detail`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-detail`
     - [ ] It should leverage the `useParams` hook from `react-router-dom` to extract the `nutritionId` param from the url
     - [ ] When the component is mounted to the screen...
       - [ ] It should make a `GET` request to the `/nutrition/:nutritionId` endpoint with the `axios.get` method.
@@ -408,7 +408,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`NutritionCard.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `nutrition-card`
+    - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-card`
     - [ ] Should accept **at least** the following props:
       - [ ] `nutrition` - should be a nutrition entry object containing the following attributes:
         - [ ] `imageUrl` - (not required)
