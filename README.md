@@ -139,8 +139,8 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] Create an **`auth`** context:
 
-    - [ ] First, create a `contexts` directory at the root of the project
-    - [ ] Inside it, touch the `contexts/auth.jsx` file
+    - [X] First, create a `contexts` directory at the root of the project
+    - [X] Inside it, touch the `contexts/auth.jsx` file
     - [ ] In that file, define a new `AuthContext` with `React.createContext`
     - [ ] Use that context to create an `AuthContextProvider` component
       - [ ] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
@@ -165,10 +165,10 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] Create and export a `useAuthContext` hook that calls the `React.useContext` hook with the newly created `AuthContext` and returns it.
     - [ ] In `App.jsx` file create an `AppContainer` component that wraps the `App` component with the `AuthContextProvider` component (which should still be nested inside the `BrowserRouter` component from `react-router-dom`). Export the `AppContainer` component by default instead of the `App`
 
-  - [ ] The **`Loading.jsx`** component
+  - [X] The **`Loading.jsx`** component
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `loading`
-    - [ ] Should render an element with the `className` of `loading-message` that contains the text `"Loading"`
+    - [X] Should render an element with the `className` of `loading-message` that contains the text `"Loading"`
 
   - [ ] The **`Navbar.jsx`** component
 
