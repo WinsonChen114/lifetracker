@@ -1,7 +1,7 @@
 import * as React from "react"
 import "./LoginForm.css"
 
-export default function LoginForm({ loginInfo, handleOnChange = () => { }, loginUser = () => {}}) {
+export default function LoginForm({ loginInfo, handleOnChange = () => { }, loginUser = () => { } }) {
   const [validEmail, setValidEmail] = React.useState(true)
 
   function validateEmail(value) {
@@ -17,10 +17,12 @@ export default function LoginForm({ loginInfo, handleOnChange = () => { }, login
         handleOnChange("email", event.target.value)
         validateEmail(event.target.value)
       }} placeholder="example@gmail.com"></input><br />
-      {!validEmail && <p className="error">"{loginInfo?.email}" is not a valid email</p>}
+      {!validEmail && <p className="error">"{loginInfo.email}" is not a valid email</p>}
+
       <label htmlFor="password">Password</label><br />
       <input className="form-input" name="password" type="password" onChange={(event) => handleOnChange("password", event.target.value)}></input>
-      <button className="submit-login" type="submit" onSubmit={loginUser}>Login</button>
+
+      <button className="submit-login" type="submit" onSubmit={loginUser} disabled={!validEmail}>Login</button>
     </div>
   )
 }

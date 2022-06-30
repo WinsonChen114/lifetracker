@@ -233,18 +233,18 @@ The components in the `App.jsx` file should render the following components (alo
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
       - [X] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
       - [X] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
-      - [ ] `value` - the current value of the `input` element
-      - [ ] `onChange` - the `onChange` handler function
-    - [ ] The component should validate the `email` field:
-      - [ ] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
-    - [ ] The component should validate the `password` and `passwordConfirm` fields:
-      - [ ] If the user has entered text into the `password` and `passwordConfirm` fields and they don't match, then a message should be displayed in an element with the `className` of `error` with a message that contains the text: `passwords don't match`
+      - [X] `value` - the current value of the `input` element
+      - [X] `onChange` - the `onChange` handler function
+    - [X] The component should validate the `email` field:
+      - [X] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
+    - [X] The component should validate the `password` and `passwordConfirm` fields:
+      - [X] If the user has entered text into the `password` and `passwordConfirm` fields and they don't match, then a message should be displayed in an element with the `className` of `error` with a message that contains the text: `passwords don't match`
     - [ ] The component should gracefully handle errors:
       - [ ] If the user has attempted to login and gotten a `401` error, then the `errors` object should contain a `form` property that contains a message indicating that the `email` and `password` combination is incorrect.
       - [ ] If the user has attempted to login and gotten a `400` or `422` error, then the `errors` object should contain a `form` property that contains a message indicating what went wrong.
-    - [ ] There should be a `button` element with the `className` of `submit-registration`:
-      - [ ] It should contain the text `"Create Account"`
-      - [ ] When clicked, it should call the `signupUser` function
+    - [X] There should be a `button` element with the `className` of `submit-registration`:
+      - [X] It should contain the text `"Create Account"`
+      - [X] When clicked, it should call the `signupUser` function
 
   - [ ] The **`RegistrationPage.jsx`** component:
 

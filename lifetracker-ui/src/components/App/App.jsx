@@ -11,9 +11,22 @@ import AccessForbidden from "../AccessForbidden/AccessForbidden"
 import NotFound from "../NotFound/NotFound"
 
 export default function App() {
-  const [loginInfo, setLoginInfo] = React.useState()
+  const [loginInfo, setLoginInfo] = React.useState({
+    email: "",
+    password: ""
+  })
+  const [registrationInfo, setRegistrationInfo] = React.useState({
+    email: "",
+    username: "",
+    firstName: "",
+    lastName: "",
+    password: "",
+    confirm: ""
+  }
 
-  function handleLoginInfoOnChange (field, value) {
+  )
+
+  function handleLoginInfoOnChange(field, value) {
     setLoginInfo({
       ...loginInfo,
       [field]: value,
@@ -21,15 +34,23 @@ export default function App() {
     console.log(loginInfo)
   }
 
+  function handleRegistrationInfoOnChange(field, value) {
+    setRegistrationInfo({
+      ...registrationInfo,
+      [field]: value,
+    })
+    console.log(registrationInfo)
+  }
+
   return (
     <div className="app">
       <React.Fragment>
         <BrowserRouter>
-        <Navbar />
+          <Navbar />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage loginInfo={loginInfo} handleOnChange={handleLoginInfoOnChange} />} />
-            <Route path="/register" element={<RegistrationPage />} />
+            <Route path="/register" element={<RegistrationPage registrationInfo={registrationInfo} handleOnChange={handleRegistrationInfoOnChange} />} />
             <Route path="/activity" element={<ActivityPage />} />
             <Route path="/nutrition/*" element={<NutritionPage />} />
             <Route path="*" element={<NotFound />} />
