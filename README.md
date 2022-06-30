@@ -190,28 +190,28 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] It should render an element with the `className` of `logout-button` that calls the `logoutUser` function when clicked.
         - [ ] That function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
     - [ ] If no valid user is logged in:
-      - [ ] It should render a `Link` element that redirects to the `/login` route with the label `Login`
-      - [ ] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
+      - [X] It should render a `Link` element that redirects to the `/login` route with the label `Login`
+      - [X] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
 
   - [ ] The **`LoginForm.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `login-form`
-    - [ ] Should render an input element for the following fields:
-      - [ ] `email`
-      - [ ] `password`
-    - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`email`, `password`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
-      - [ ] `value` - the current value of the `input` element
-      - [ ] `onChange` - the `onChange` handler function
-    - [ ] The component should validate the `email` field:
-      - [ ] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
+    - [X] Should render an input element for the following fields:
+      - [X] `email`
+      - [X] `password`
+    - [X] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
+      - [X] `name` - the `name` of the `input` field being rendered (`email`, `password`)
+      - [X] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [X] `value` - the current value of the `input` element
+      - [X] `onChange` - the `onChange` handler function
+    - [X] The component should validate the `email` field:
+      - [X] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
     - [ ] The component should gracefully handle errors:
       - [ ] If the user has attempted to login and gotten a `401` error, then an error message should be displayed in an element with the `className` of `error` indicating that the `email` and `password` combination is incorrect.
       - [ ] If the user has attempted to login and gotten a `400` or `422` error, then an error message should be displayed in an element with the `className` of `error` indicating what went wrong.
-    - [ ] There should be a `button` element with the `className` of `submit-login`:
-      - [ ] It should contain the text `"Login"`
-      - [ ] When clicked, it should call the `loginUser` function
+    - [X] There should be a `button` element with the `className` of `submit-login`:
+      - [X] It should contain the text `"Login"`
+      - [X] When clicked, it should call the `loginUser` function
 
   - [ ] The **`LoginPage.jsx`** component:
 
@@ -224,15 +224,15 @@ The components in the `App.jsx` file should render the following components (alo
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `registration-form`
     - [ ] Should render an input element for the following fields:
-      - [ ] `email`
-      - [ ] `username`
-      - [ ] `firstName`
-      - [ ] `lastName`
-      - [ ] `password`
-      - [ ] `passwordConfirm`
+      - [X] `email`
+      - [X] `username`
+      - [X] `firstName`
+      - [X] `lastName`
+      - [X] `password`
+      - [X] `passwordConfirm`
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [X] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
+      - [X] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
       - [ ] `value` - the current value of the `input` element
       - [ ] `onChange` - the `onChange` handler function
     - [ ] The component should validate the `email` field:
@@ -258,7 +258,7 @@ The components in the `App.jsx` file should render the following components (alo
     - [X] Should render JSX that is wrapped by an element with the `className` of `landing-page`
     - [ ] Should render an element with the `className` of `hero`
       - [ ] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
-      - [ ] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
+      - [X] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
     - [ ] Should allow unauthenticated access
 
   - [ ] The **`activity`** context

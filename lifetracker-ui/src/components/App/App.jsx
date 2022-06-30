@@ -11,6 +11,16 @@ import AccessForbidden from "../AccessForbidden/AccessForbidden"
 import NotFound from "../NotFound/NotFound"
 
 export default function App() {
+  const [loginInfo, setLoginInfo] = React.useState()
+
+  function handleLoginInfoOnChange (field, value) {
+    setLoginInfo({
+      ...loginInfo,
+      [field]: value,
+    })
+    console.log(loginInfo)
+  }
+
   return (
     <div className="app">
       <React.Fragment>
@@ -18,7 +28,7 @@ export default function App() {
         <Navbar />
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage loginInfo={loginInfo} handleOnChange={handleLoginInfoOnChange} />} />
             <Route path="/register" element={<RegistrationPage />} />
             <Route path="/activity" element={<ActivityPage />} />
             <Route path="/nutrition/*" element={<NutritionPage />} />
