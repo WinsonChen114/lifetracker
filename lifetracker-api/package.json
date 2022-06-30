@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "Express backend for the LifeTracker application",
   "main": "server.js",
-  "scripts": {},
+  "scripts": {
+    "start" : "nodemon server.js",
+    "test" : "jest -i"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,5 +20,8 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.18",
     "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "jest": "^28.1.2"
   }
 }
