@@ -309,16 +309,16 @@ The components in the `App.jsx` file should render the following components (alo
         - [ ] It should pass the string of `calories` as the `label` prop
         - [ ] It should pass the `date` in the format `dd/mm/yyyy` - example: `07/02/2022` - as the `substat` prop
 
-  - [ ] The **`SummaryStat.jsx`** component:
+  - [X] The **`SummaryStat.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `summary-stat`
-    - [ ] Should accept **at least** the following props:
-      - [ ] `stat` - the primary statistic to display
-      - [ ] `label` - the unit label assigned to the statistic
-      - [ ] `substat` - a secondary statistic related to the primary statistic
-    - [ ] It should render the `stat` prop inside an element with the `className` of `primary-statistic`
-    - [ ] It should render the `label` prop inside an element with the `className` of `stat-label`
-    - [ ] It should render the `substat` prop inside an element with the `className` of `secondary-statistic`
+    - [X] Should accept **at least** the following props:
+      - [X] `stat` - the primary statistic to display
+      - [X] `label` - the unit label assigned to the statistic
+      - [X] `substat` - a secondary statistic related to the primary statistic
+    - [X] It should render the `stat` prop inside an element with the `className` of `primary-statistic`
+    - [X] It should render the `label` prop inside an element with the `className` of `stat-label`
+    - [X] It should render the `substat` prop inside an element with the `className` of `secondary-statistic`
 
   - [ ] The **`nutrition`** context
 
