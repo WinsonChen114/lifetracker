@@ -13,7 +13,7 @@ class ApiClient {
 
     //Helper function to make a call to API
     static async request(endpoint) {
-        axios.get("http://localhost:3001/auth/"+endpoint)
+        axios.get(API_BASE_URL+"/auth/"+endpoint)
         .then((response) => {
             return response
         })

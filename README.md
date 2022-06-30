@@ -141,21 +141,21 @@ The components in the `App.jsx` file should render the following components (alo
 
     - [X] First, create a `contexts` directory at the root of the project
     - [X] Inside it, touch the `contexts/auth.jsx` file
-    - [ ] In that file, define a new `AuthContext` with `React.createContext`
+    - [X] In that file, define a new `AuthContext` with `React.createContext`
     - [ ] Use that context to create an `AuthContextProvider` component
-      - [ ] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
-      - [ ] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
-        - [ ] That hook should check to see if a JWT token exists in local storage under the `lifetracker_token` key
-          - [ ] If it does:
-            - [ ] It should add that token to `ApiClient` class with the `setToken` method
-            - [ ] Then, it should set the `isProcessing` state variable to `true` and the `error` state variable to `null`
-            - [ ] Next, it should send a `GET` request to the `/auth/me` endpoint
-              - [ ] If it fails, it should set the `error` prop to a valid error message
+      - [X] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
+      - [X] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
+        - [X] That hook should check to see if a JWT token exists in local storage under the `lifetracker_token` key
+          - [X] If it does:
+            - [X] It should add that token to `ApiClient` class with the `setToken` method
+            - [X] Then, it should set the `isProcessing` state variable to `true` and the `error` state variable to `null`
+            - [X] Next, it should send a `GET` request to the `/auth/me` endpoint
+              - [X] If it fails, it should set the `error` prop to a valid error message
               - [ ] If it is successful...
                 - [ ] It should set the `user` state variable with the `user` returned in the response
                 - [ ] It should set the `error` state variable to `null`
-            - [ ] Regardless, it should set the `isProcessing` state variable to `false` and the `initialized` state variable to `true`
-          - [ ] The user returned from that request should be stored in state. This will ensure that users stay logged in even if they refresh the page.
+            - [X] Regardless, it should set the `isProcessing` state variable to `false` and the `initialized` state variable to `true`
+          - [X] The user returned from that request should be stored in state. This will ensure that users stay logged in even if they refresh the page.
       - [ ] It should also define handler functions for:
         - [ ] `loginUser` - should make a request to log the user in
         - [ ] `signupUser` - should make a request to sign the user up
