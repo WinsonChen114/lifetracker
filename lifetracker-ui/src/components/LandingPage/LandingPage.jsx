@@ -4,7 +4,7 @@ import "./LandingPage.css"
 export default function LandingPage() {
   return (
     <div className="landing-page">
-      <h1>Hero Placeholder</h1>
+      <img className={"hero-img"} src={"src/assets/Hero_Image.jpg"} />
       <p className="cta"> Track your lifestyle and see where you need to improve!</p>
     </div>
   )
