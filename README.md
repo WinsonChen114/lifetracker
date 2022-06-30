@@ -263,8 +263,8 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`activity`** context
 
-    - [ ] Create a file in the `contexts directory - `/contexts/activity.jsx`
-    - [ ] In that file, define a new `ActivityContext` with `React.createContext`
+    - [X] Create a file in the `contexts directory - `/contexts/activity.jsx`
+    - [X] In that file, define a new `ActivityContext` with `React.createContext`
     - [ ] Use that context to create an `ActivityContextProvider` component
       - [ ] The `ActivityContextProvider` component should create state variables and updaters needed for `activity`, `initialized`, `isLoading`, and `error`.
       - [ ] It should call the `useAuthContext` hook and check to see if a valid user is logged in.
@@ -292,19 +292,19 @@ The components in the `App.jsx` file should render the following components (alo
   - [ ] The **`ActivityFeed.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `activity-feed`
-    - [ ] Should accept **at least** the following props:
-      - [ ] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
-      - [ ] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
-      - [ ] Any other
+    - [X] Should accept **at least** the following props:
+      - [X] `totalCaloriesPerDay` - an array of items containing summary data about the total calories consumed per day
+      - [X] `avgCaloriesPerCategory` - an array of items containing summary data about the average calories consumed per category
+      - [X] Any other
     - [ ] Inside an element with the `className` of `per-category`, it should:
-      - [ ] Render the text: `"Average Calories Per Category` inside an `h4` element
-      - [ ] Take the first `6` or less items in the `avgCaloriesPerCategory` array and render a `SummaryStat.jsx` component for each item.
+      - [X] Render the text: `"Average Calories Per Category` inside an `h4` element
+      - [X] Take the first `6` or less items in the `avgCaloriesPerCategory` array and render a `SummaryStat.jsx` component for each item.
         - [ ] It should pass the calories **rounded down to one decimal place** as the `stat` prop
         - [ ] It should pass the string of `calories` as the `label` prop
         - [ ] It should pass the `category` as the `substat` prop
     - [ ] Inside an element with the `className` of `per-day`, it should:
-      - [ ] Render the text: `"Total Calories Per Day` inside an `h4` element
-      - [ ] For each item in the `totalCaloriesPerDay` array, it should render a `SummaryStat.jsx` component.
+      - [X] Render the text: `"Total Calories Per Day` inside an `h4` element
+      - [X] For each item in the `totalCaloriesPerDay` array, it should render a `SummaryStat.jsx` component.
         - [ ] It should pass the calories **rounded down to the nearest whole number** as the `stat` prop
         - [ ] It should pass the string of `calories` as the `label` prop
         - [ ] It should pass the `date` in the format `dd/mm/yyyy` - example: `07/02/2022` - as the `substat` prop
