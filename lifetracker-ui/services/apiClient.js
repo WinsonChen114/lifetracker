@@ -12,31 +12,42 @@ class ApiClient {
     }
 
     //Helper function to make a call to API
-    static async request(endpoint) {
-        axios.get(API_BASE_URL+"/auth/"+endpoint)
-        .then((response) => {
-            return response
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+    static async request(endpoint, method = "GET", data = {}) {
+        const url = `${this.remoteHostUrl}/${endpoint}`
+
+        const headers = {
+            "Content-Type": "application/json"
+        }
+
+        if (this.token) {
+            headers["Authorization"] = `Bearer ${this.token}`
+        }
+        try {
+            const res = await axios({ url, method, data, headers })
+            return { data: res.data, error: null }
+        } catch (error) {
+            console.error({errorResponse: error.response})
+            const message = error?.response?.data?.error?.message
+            return {data: null, error: message || String(error)}
+
+        }
 
     }
 
-    static async login() {
-        let response = request("login")
+    static async login(credentials) {
+        let response = await request({endpoint: "auth/login", method: "POST", data: credentials})
         return response
     }
 
-    static async signup() {
-        let response = request("register")
+    static async login(credentials) {
+        let response = await request({endpoint: "auth/register", method: "POST", data: credentials})
         return response
     }
 
-    static async fetchUserFromToken() {
-        let response = request("me")
+    static async fetchUserFromToken(token) {
+        let response = await request({endpoint: "auth/register", method: "GET", data: token})
         return response
     }
 }
 
-module.exports = ApiClient
+export default new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
