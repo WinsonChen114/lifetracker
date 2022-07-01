@@ -151,9 +151,9 @@ The components in the `App.jsx` file should render the following components (alo
             - [X] Then, it should set the `isProcessing` state variable to `true` and the `error` state variable to `null`
             - [X] Next, it should send a `GET` request to the `/auth/me` endpoint
               - [X] If it fails, it should set the `error` prop to a valid error message
-              - [ ] If it is successful...
-                - [ ] It should set the `user` state variable with the `user` returned in the response
-                - [ ] It should set the `error` state variable to `null`
+              - [X] If it is successful...
+                - [X] It should set the `user` state variable with the `user` returned in the response
+                - [X] It should set the `error` state variable to `null`
             - [X] Regardless, it should set the `isProcessing` state variable to `false` and the `initialized` state variable to `true`
           - [X] The user returned from that request should be stored in state. This will ensure that users stay logged in even if they refresh the page.
       - [ ] It should also define handler functions for:
@@ -471,66 +471,66 @@ Here are the pieces of functionality that should be built out for the backend:
         - [ ] Check to see if a valid `process.env.DATABASE_URL` environment variable exists, and return that if it does.
         - [ ] When `IS_TESTING` is `true`, the `getDatabaseUri` function should use the test database
         - [ ] Otherwise, it should combine the proper database environment variables into a database connection string if no `process.env.DATABASE_URL` environment variable exists
-  - [ ] Add a `config.js` file
-    - [ ] Use the `dotenv` package to parse the environment variables from the `.env` file.
-    - [ ] Export each of the environment variables from the `config.js` file until the tests pass
-    - [ ] Write a `getDatabaseUri` function so that all the tests pass
+  - [X] Add a `config.js` file
+    - [X] Use the `dotenv` package to parse the environment variables from the `.env` file.
+    - [X] Export each of the environment variables from the `config.js` file until the tests pass
+    - [X] Write a `getDatabaseUri` function so that all the tests pass
   - [ ] Commit all work to `git`
   - [ ] The project should now be ready to go!
 - **PostgreSQL database**
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
   - Create two files at the root of the project:
-    - [ ] `lifetracker-schema.sql`
-      - [ ] This script should:
-        - [ ] Create a `users` table with the following columns:
-          - [ ] `id`
-          - [ ] `username`
-          - [ ] `password`
-          - [ ] `first_name`
-          - [ ] `last_name`
-          - [ ] `email`
-          - [ ] `created_at`
-          - [ ] `updated_at`
-        - [ ] Create a `nutrition` table with the following columns:
-          - [ ] `id`
-          - [ ] `name`
-          - [ ] `category`
-          - [ ] `calories`
-          - [ ] `image_url`
-          - [ ] `user_id`
-          - [ ] `created_at`
+    - [X] `lifetracker-schema.sql`
+      - [X] This script should:
+        - [X] Create a `users` table with the following columns:
+          - [X] `id`
+          - [X] `username`
+          - [X] `password`
+          - [X] `first_name`
+          - [X] `last_name`
+          - [X] `email`
+          - [X] `created_at`
+          - [X] `updated_at`
+        - [X] Create a `nutrition` table with the following columns:
+          - [X] `id`
+          - [X] `name`
+          - [X] `category`
+          - [X] `calories`
+          - [X] `image_url`
+          - [X] `user_id`
+          - [X] `created_at`
         - [ ] **Any other tables** that the application might depend on
-    - [ ] `lifetracker.sql`
-      - [ ] This script should:
-        - [ ] 1. Let the user know that they're about to delete the `lifetracker` db and prompt them to confirm that is what they want.
-        - [ ] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
-        - [ ] 3. It should then run the `lifetracker-schema.sql` file.
-        - [ ] Follow the exact same steps for `1`, `2`, and `3`, but with the `lifetracker_test` database.
+    - [X] `lifetracker.sql`
+      - [X] This script should:
+        - [X] 1. Let the user know that they're about to delete the `lifetracker` db and prompt them to confirm that is what they want.
+        - [X] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
+        - [X] 3. It should then run the `lifetracker-schema.sql` file.
+        - [X] Follow the exact same steps for `1`, `2`, and `3`, but with the `lifetracker_test` database.
   - [ ] Setup the database by running `psql -f lifetracker.sql`
-  - [ ] Create a new file at the root of the project called `db.js`. In that file:
-    - [ ] Import the `getDatabaseUri` function from the `config.js` file.
-    - [ ] Initialize a new postgres client with the `pg` package and connect to PostgreSQL using any necessary config variables.
-    - [ ] Connect to postgres and log a message to the terminal on success or failure.
-    - [ ] Export the connected database client
-  - [ ] Commit all work to `git`
+  - [X] Create a new file at the root of the project called `db.js`. In that file:
+    - [X] Import the `getDatabaseUri` function from the `config.js` file.
+    - [X] Initialize a new postgres client with the `pg` package and connect to PostgreSQL using any necessary config variables.
+    - [X] Connect to postgres and log a message to the terminal on success or failure.
+    - [X] Export the connected database client
+  - [X] Commit all work to `git`
   - [ ] A database client is now ready to be used!
 - **Server**
   - [ ] Build out a bare-bones Express server with a healthcheck route and an adequate middleware pipeline.
-  - [ ] Create a `utils` directory
-    - [ ] In the `utils` directory, create an `errors.js` file.
-    - [ ] Create error classes inside the file that will be used throughout the app.
+  - [X] Create a `utils` directory
+    - [X] In the `utils` directory, create an `errors.js` file.
+    - [X] Create error classes inside the file that will be used throughout the app.
   - [ ] In the `app.test.js` file, write tests that:
     - [ ] Ensure that the Express application responds to `GET` requests to the `/` route with a JSON object of `{ "ping": "pong" }`
     - [ ] Check that middleware like `morgan` and `cors` exist, along with the JSON `body-parser` middleware from `express`
     - [ ] Include an `afterAll` hook that calls `await db.end()` so that any open database connections close when all the tests are finished.
-  - [ ] Add code to the `app.js` and `server.js` file to get a simple server running along with responding to `GET` requests to the `/` route
-  - [ ] Create error classes inside the `utils/errors.js` file.
-  - [ ] Add `404` and generic error handler middlewares to the `app.js` file.
-  - [ ] In the `server.js` file:
-    - [ ] Import the Express app and the `config.js` file
-    - [ ] Have the `app` listen on the port specified by `config.PORT`.
-  - [ ] Commit all work to `git`
+  - [X] Add code to the `app.js` and `server.js` file to get a simple server running along with responding to `GET` requests to the `/` route
+  - [X] Create error classes inside the `utils/errors.js` file.
+  - [X] Add `404` and generic error handler middlewares to the `app.js` file.
+  - [X] In the `server.js` file:
+    - [X] Import the Express app and the `config.js` file
+    - [X] Have the `app` listen on the port specified by `config.PORT`.
+  - [X] Commit all work to `git`
   - [ ] Test out the fancy new Express server by starting it up in a new terminal window!
 - **Common Test Configuration**
   - [ ] It would probably be helpful to create some common test functions that can be used throughout the application's testing suite.
@@ -555,13 +555,13 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] In any new test file, make sure to import these functions and use them with the correct `jest` lifecycle hooks
 - **Authentication**
   - [ ] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
-  - [ ] Add new directories for `models`, `routes`, and `middleware`
+  - [X] Add new directories for `models`, `routes`, and `middleware`
   - [ ] The **User** model
-    - [ ] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
-      - [ ] The `User` model should have **at least** the following static methods:
-        - [ ] `login`
-        - [ ] `register`
-        - [ ] `fetchUserByEmail`
+    - [X] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
+      - [X] The `User` model should have **at least** the following static methods:
+        - [X] `login`
+        - [X] `register`
+        - [X] `fetchUserByEmail`
     - [ ] In the `models/user.test.js` file:
       - [ ] Test the `login` method. Write test cases for:
         - [ ] User can login successfully with proper credentials
@@ -581,10 +581,10 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing.
   - [ ] Commit all work to `git`
   - [ ] The **tokens** utility functions
-    - [ ] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
-      - [ ] At the bare minimum, two functions will be needed:
-        - [ ] One that accepts a JSON payload as an argument and converts it into a JWT
-        - [ ] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
+    - [X] In the `utils` directory, create two new files: `utils/tokens.js` and `utils/tokens.test.js`
+      - [X] At the bare minimum, two functions will be needed:
+        - [X] One that accepts a JSON payload as an argument and converts it into a JWT
+        - [X] One that accepts a JWT as an argument, validates it, and returns the JSON payload encoded within - if it's valid
     - [ ] In the `utils/tokens.test.js` file:
       - [ ] Write test cases for:
         - [ ] Can create valid JWT tokens for user payloads

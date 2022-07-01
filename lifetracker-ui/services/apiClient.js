@@ -5,10 +5,13 @@ class ApiClient {
     constructor(remoteHostUrl) {
         this.remoteHostUrl = remoteHostUrl
         this.token = null
+        this.tokenName = "lifetraker_token"
     }
 
     static setToken(token) {
         this.token = token
+        localStorage.setItem(this.tokenName, token)
+
     }
 
     //Helper function to make a call to API
@@ -39,14 +42,19 @@ class ApiClient {
         return response
     }
 
-    static async login(credentials) {
+    static async signup(credentials) {
         let response = await request({endpoint: "auth/register", method: "POST", data: credentials})
         return response
     }
 
     static async fetchUserFromToken(token) {
-        let response = await request({endpoint: "auth/register", method: "GET", data: token})
+        let response = await request({endpoint: "auth/register", method: "GET"})
         return response
+    }
+
+    static async logout() {
+        this.setToken(null)
+        localStorage.setItem(this.tokenName, "")
     }
 }
 
