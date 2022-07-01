@@ -16,6 +16,11 @@ const validateToken = (token) => {
     }
 }
 
+module.exports = {
+    generateToken,
+    validateToken
+}
+
 // const testToken = () =>{
 //     const user = {email: "hello@gmail.com"}
 //     const token = generateToken(user)
