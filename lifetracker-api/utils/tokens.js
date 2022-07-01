@@ -1,9 +1,8 @@
 const jwt = require("jsonwebtoken")
 require('dotenv').config();
+const { SECRET_KEY } = require("../config")
 
-const SECRET_KEY = process.env.SECRET_KEY
-
-const generateToken = (data) => jwt.sign(data, SECRET_KEY, {algorithm: "HS256", expiresIn: 10000})
+const generateToken = (data) => jwt.sign(data, SECRET_KEY, {expiresIn: "24h"})
 
 const validateToken = (token) => {
     try {
@@ -13,6 +12,7 @@ const validateToken = (token) => {
     catch (err)
     {
         console.log(err)
+        return {}
     }
 }
 

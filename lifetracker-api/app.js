@@ -3,6 +3,7 @@ const cors = require("cors")
 const morgan = require("morgan")
 const { BadRequestError, NotFoundError } = require("./utils/errors")
 const authRoutes = require("./routes/auth")
+const nutritionRoutes = require("./routes/nutrition")
 
 const app = express()
 
@@ -13,6 +14,7 @@ app.use(express.json())
 app.use(morgan("tiny"))
 
 app.use("/auth", authRoutes)
+app.use("/nutrition", nutritionRoutes)
 
 app.use((request, response, next) => {
     return next(new NotFoundError())

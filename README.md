@@ -507,14 +507,14 @@ Here are the pieces of functionality that should be built out for the backend:
         - [X] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
         - [X] 3. It should then run the `lifetracker-schema.sql` file.
         - [X] Follow the exact same steps for `1`, `2`, and `3`, but with the `lifetracker_test` database.
-  - [ ] Setup the database by running `psql -f lifetracker.sql`
+  - [X] Setup the database by running `psql -f lifetracker.sql`
   - [X] Create a new file at the root of the project called `db.js`. In that file:
     - [X] Import the `getDatabaseUri` function from the `config.js` file.
     - [X] Initialize a new postgres client with the `pg` package and connect to PostgreSQL using any necessary config variables.
     - [X] Connect to postgres and log a message to the terminal on success or failure.
     - [X] Export the connected database client
   - [X] Commit all work to `git`
-  - [ ] A database client is now ready to be used!
+  - [X] A database client is now ready to be used!
 - **Server**
   - [ ] Build out a bare-bones Express server with a healthcheck route and an adequate middleware pipeline.
   - [X] Create a `utils` directory
