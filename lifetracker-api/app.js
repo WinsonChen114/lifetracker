@@ -26,7 +26,7 @@ app.use((request, response, next) => {
 })
 
 app.use((error, request, response, next) => {
-    const status = error.status
+    const status = error.status || 500
     const message = error.message
 
     return response.status(status).json({

@@ -17,5 +17,6 @@ CREATE TABLE nutrition (
     image_url   TEXT NOT NULL,
     user_id     INTEGER NOT NULL,
     created_at  TIMESTAMP NOT NULL DEFAULT NOW(),
+    quantity    INTEGER NOT NULL DEFAULT 1,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

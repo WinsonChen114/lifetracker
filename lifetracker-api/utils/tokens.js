@@ -4,9 +4,18 @@ const { SECRET_KEY } = require("../config")
 
 const generateToken = (data) => jwt.sign(data, SECRET_KEY, {expiresIn: "24h"})
 
+const createUserJwt = (user) => {
+    const payload = {
+        email: user.email
+    }
+    
+    return generateToken(payload)
+}
+
 const validateToken = (token) => {
     try {
         let validated = jwt.verify(token, SECRET_KEY)
+        console.log(validated)
         return validated
     }
     catch (err)
@@ -18,6 +27,7 @@ const validateToken = (token) => {
 
 module.exports = {
     generateToken,
+    createUserJwt,
     validateToken
 }
 
