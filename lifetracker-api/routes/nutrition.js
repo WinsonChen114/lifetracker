@@ -7,8 +7,8 @@ router.get("/", async (request, response, next) => {
     try {
         //Returns an array of all nutrition entries belonging to the user
         const user = response.locals
-        const nutrition = await Nutrition.listNutritionForUser(user)
-        return response.status(200).json({ nutrition })
+        const nutritions = await Nutrition.listNutritionForUser(user)
+        return response.status(200).json({ nutritions })
     }
     catch (err) {
         next(err)
