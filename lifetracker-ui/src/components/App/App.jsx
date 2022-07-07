@@ -9,7 +9,7 @@ import ActivityPage from "../ActivityPage/ActivityPage"
 import NutritionPage from "../NutritionPage/NutritionPage"
 import AccessForbidden from "../AccessForbidden/AccessForbidden"
 import NotFound from "../NotFound/NotFound"
-import { AuthContextProvider, useAuthContext } from "contexts/auth"
+import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
 
 export default function AppContainer() {
   return (
@@ -20,7 +20,7 @@ export default function AppContainer() {
 }
 
 function App() {
-  const { user, setUser } = useAuthContext()
+  const {user, setUser} = useAuthContext()
   const [loginInfo, setLoginInfo] = React.useState({
     email: "",
     password: ""

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { API_BASE_URL } from "../../constants"
+//import { API_BASE_URL } from "../../constants"
 
 class ApiClient {
     constructor(remoteHostUrl) {
@@ -8,14 +8,14 @@ class ApiClient {
         this.tokenName = "lifetraker_token"
     }
 
-    static setToken(token) {
+    setToken(token) {
         this.token = token
         localStorage.setItem(this.tokenName, token)
 
     }
 
     //Helper function to make a call to API
-    static async request(endpoint, method = "GET", data = {}) {
+    async request(endpoint, method = "GET", data = {}) {
         const url = `${this.remoteHostUrl}/${endpoint}`
 
         const headers = {
@@ -37,25 +37,25 @@ class ApiClient {
 
     }
 
-    static async login(credentials) {
-        let response = await request({endpoint: "auth/login", method: "POST", data: credentials})
+    async login(credentials) {
+        let response = await this.request({endpoint: "auth/login", method: "POST", data: credentials})
         return response
     }
 
-    static async signup(credentials) {
-        let response = await request({endpoint: "auth/register", method: "POST", data: credentials})
+    async signup(credentials) {
+        let response = await this.request({endpoint: "auth/register", method: "POST", data: credentials})
         return response
     }
 
-    static async fetchUserFromToken(token) {
-        let response = await request({endpoint: "auth/me", method: "GET"})
+    async fetchUserFromToken() {
+        let response = await this.request({endpoint: "auth/me", method: "GET"})
         return response
     }
 
-    static async logout() {
+    async logout() {
         this.setToken(null)
         localStorage.setItem(this.tokenName, "")
     }
 }
 
-export default new ApiClient(process.env.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
+export default new ApiClient("http://localhost:3001")

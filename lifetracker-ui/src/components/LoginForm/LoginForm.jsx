@@ -1,13 +1,33 @@
 import * as React from "react"
 import "./LoginForm.css"
+import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
+import apiClient from "../../services/apiClient"
 
 export default function LoginForm({ loginInfo, handleOnChange = () => { }, loginUser = () => { } }) {
   const [validEmail, setValidEmail] = React.useState(true)
+  const [errors, setErrors] = React.useState({})
+  const {isProcessing, setIsProcessing} = useAuthContext()
+  
 
   function validateEmail(value) {
     //If user has entered text, and the @ symbol is missing, or there is no "." after the @ symbol, it is not a valid email
     let isValid = value.length == 0 || (value.indexOf("@") != -1 && value.indexOf(".", value.indexOf("@")) != -1)
     setValidEmail(isValid)
+  }
+
+  const handleOnSubmit = async () => {
+    setIsProcessing(true)
+    setErrors((e) => ({ ...e, form: null }))
+
+    const { data, error } = await apiClient.login({ email: loginInfo.email, password: loginInfo.password })
+    if (error) {
+      setErrors((e) => ({ ...e, form: error }))
+    }
+    if (data?.user) {
+      setUser(data.user)
+      apiClient.setToken(data.token)
+    }
+    setIsProcessing(false)
   }
 
   return (
@@ -22,7 +42,7 @@ export default function LoginForm({ loginInfo, handleOnChange = () => { }, login
       <label htmlFor="password">Password</label><br />
       <input className="form-input" name="password" type="password" onChange={(event) => handleOnChange("password", event.target.value)}></input>
 
-      <button className="submit-login" type="submit" onSubmit={loginUser} disabled={!validEmail}>Login</button>
+      <button className="submit-login" type="submit" onClick={handleOnSubmit} disabled={!validEmail}>Login</button>
     </div>
   )
 }
