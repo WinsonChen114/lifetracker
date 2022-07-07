@@ -1,5 +1,5 @@
 import axios from "axios"
-import { API_BASE_URL } from "../constants"
+import { API_BASE_URL } from "../../constants"
 
 class ApiClient {
     constructor(remoteHostUrl) {
@@ -48,7 +48,7 @@ class ApiClient {
     }
 
     static async fetchUserFromToken(token) {
-        let response = await request({endpoint: "auth/register", method: "GET"})
+        let response = await request({endpoint: "auth/me", method: "GET"})
         return response
     }
 

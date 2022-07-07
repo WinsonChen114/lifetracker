@@ -3,11 +3,13 @@ import ApiClient from "../services/apiClient"
 
 const AuthContext = React.createContext()
 
-export function AuthContextProvider() {
+export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = React.useState()
     const [initialized, setInitialized] = React.useState()
     const [isProcessing, setIsProcessing] = React.useState()
     const [error, setError] = React.useState()
+
+    const authValue = { user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError }
 
     function loginUser(credentials) {
         ApiClient.login(credentials)
@@ -24,7 +26,7 @@ export function AuthContextProvider() {
     function logoutUser() {
         ApiClient.logout()
     }
-    
+
 
     React.useEffect(() => {
         if (localStorage.lifetracker_token) {
@@ -46,14 +48,13 @@ export function AuthContextProvider() {
         }
     }, [])
 
-    return
+    return (
+        <AuthContext.Provider value={authValue}>
+            <>{children}</>
+        </AuthContext.Provider>
+    )
 }
 
-export const useAuthContext= () => {
+export const useAuthContext = () => {
     return React.useContext(AuthContext)
-}
-
-modules.export = {
-    AuthContextProvider,
-    useAuthContext
 }
