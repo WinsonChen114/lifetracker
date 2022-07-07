@@ -156,14 +156,14 @@ The components in the `App.jsx` file should render the following components (alo
                 - [X] It should set the `error` state variable to `null`
             - [X] Regardless, it should set the `isProcessing` state variable to `false` and the `initialized` state variable to `true`
           - [X] The user returned from that request should be stored in state. This will ensure that users stay logged in even if they refresh the page.
-      - [ ] It should also define handler functions for:
-        - [ ] `loginUser` - should make a request to log the user in
-        - [ ] `signupUser` - should make a request to sign the user up
-        - [ ] `fetchUserFromToken` - should make a request to the `/auth/me` route to get the user's info
-        - [ ] `logoutUser` - this function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset
-      - [ ] Make sure to set all the state variables as the `value` prop passed to the `AuthContext.Provider` component
-    - [ ] Create and export a `useAuthContext` hook that calls the `React.useContext` hook with the newly created `AuthContext` and returns it.
-    - [ ] In `App.jsx` file create an `AppContainer` component that wraps the `App` component with the `AuthContextProvider` component (which should still be nested inside the `BrowserRouter` component from `react-router-dom`). Export the `AppContainer` component by default instead of the `App`
+      - [X] It should also define handler functions for:
+        - [X] `loginUser` - should make a request to log the user in
+        - [X] `signupUser` - should make a request to sign the user up
+        - [X] `fetchUserFromToken` - should make a request to the `/auth/me` route to get the user's info
+        - [X] `logoutUser` - this function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset
+      - [X] Make sure to set all the state variables as the `value` prop passed to the `AuthContext.Provider` component
+    - [X] Create and export a `useAuthContext` hook that calls the `React.useContext` hook with the newly created `AuthContext` and returns it.
+    - [X] In `App.jsx` file create an `AppContainer` component that wraps the `App` component with the `AuthContextProvider` component (which should still be nested inside the `BrowserRouter` component from `react-router-dom`). Export the `AppContainer` component by default instead of the `App`
 
   - [X] The **`Loading.jsx`** component
 
@@ -249,9 +249,9 @@ The components in the `App.jsx` file should render the following components (alo
   - [ ] The **`RegistrationPage.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `registration-page`
-    - [ ] Using either a custom hook, context, or manually handled state, this component should check to see if a user is already logged in
-      - [ ] If the user is already logged in, it should redirect them to the `/activity` page
-      - [ ] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
+    - [X] Using either a custom hook, context, or manually handled state, this component should check to see if a user is already logged in
+      - [X] If the user is already logged in, it should redirect them to the `/activity` page
+      - [X] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
 
   - [X] The **`LandingPage.jsx`** component:
 

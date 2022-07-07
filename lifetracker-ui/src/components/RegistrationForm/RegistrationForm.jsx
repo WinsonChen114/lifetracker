@@ -1,9 +1,14 @@
 import * as React from "react"
 import "./RegistrationForm.css"
+import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
+import apiClient from "../../services/apiClient"
 
-export default function RegistrationForm({ registrationInfo, handleOnChange = () => { }, signupUser = () => { } }) {
+export default function RegistrationForm({ registrationInfo, handleOnChange = () => { } }) {
   const [validEmail, setValidEmail] = React.useState(true)
   const [validPasswords, setValidPasswords] = React.useState(true)
+  const [errors, setErrors] = React.useState({})
+  const {isProcessing, setIsProcessing} = useAuthContext()
+  const {user, setUser} = useAuthContext()
 
   function validateEmail(value) {
     //If user has entered text, and the @ symbol is missing, or there is no "." after the @ symbol, it is not a valid email
@@ -13,6 +18,29 @@ export default function RegistrationForm({ registrationInfo, handleOnChange = ()
   function validatePasswords(password, confirm) {
     let isValid = password.length == 0 || confirm.length == 0 || password === confirm
     setValidPasswords(isValid)
+  }
+
+  const handleOnSubmit = async () => {
+    setIsProcessing(true)
+    setErrors((e) => ({ ...e, form: null }))
+
+    if (registrationInfo.confirm !== registrationInfo.password) {
+      setErrors((e) => ({ ...e, passwordConfirm: "Passwords do not match." }))
+      setIsProcessing(false)
+      return
+    } else {
+      setErrors((e) => ({ ...e, passwordConfirm: null }))
+    }
+
+    const { data, error } = await apiClient.signup(registrationInfo)
+    if (error) {
+      setErrors((e) => ({ ...e, form: error }))
+    }
+    if (data?.user) {
+      setUser(data.user)
+      apiClient.setToken(data.token)
+    }
+    setIsProcessing(false)
   }
 
   return (
@@ -52,7 +80,7 @@ export default function RegistrationForm({ registrationInfo, handleOnChange = ()
       }}></input><br />
       {!validPasswords && <p className="error">passwords don't match</p>}
 
-      <button className="submit-registration" type="submit" onSubmit={signupUser} disabled={!validEmail || !validPasswords}>Create Account</button>
+      <button className="submit-registration" type="submit" onClick={handleOnSubmit} disabled={!validEmail || !validPasswords}>Create Account</button>
     </div>
   )
 }

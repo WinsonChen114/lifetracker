@@ -3,10 +3,11 @@ import "./LoginForm.css"
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
 import apiClient from "../../services/apiClient"
 
-export default function LoginForm({ loginInfo, handleOnChange = () => { }, loginUser = () => { } }) {
+export default function LoginForm({ loginInfo, handleOnChange = () => { } }) {
   const [validEmail, setValidEmail] = React.useState(true)
   const [errors, setErrors] = React.useState({})
   const {isProcessing, setIsProcessing} = useAuthContext()
+  const {user, setUser} = useAuthContext()
   
 
   function validateEmail(value) {
@@ -19,7 +20,7 @@ export default function LoginForm({ loginInfo, handleOnChange = () => { }, login
     setIsProcessing(true)
     setErrors((e) => ({ ...e, form: null }))
 
-    const { data, error } = await apiClient.login({ email: loginInfo.email, password: loginInfo.password })
+    const { data, error } = await apiClient.login(loginInfo)
     if (error) {
       setErrors((e) => ({ ...e, form: error }))
     }

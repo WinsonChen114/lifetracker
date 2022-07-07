@@ -15,7 +15,7 @@ class ApiClient {
     }
 
     //Helper function to make a call to API
-    async request(endpoint, method = "GET", data = {}) {
+    async request({endpoint, method = "GET", data = {}}) {
         const url = `${this.remoteHostUrl}/${endpoint}`
 
         const headers = {
