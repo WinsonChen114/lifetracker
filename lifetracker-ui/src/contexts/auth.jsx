@@ -9,7 +9,8 @@ export const AuthContextProvider = ({ children }) => {
     const [isProcessing, setIsProcessing] = React.useState()
     const [error, setError] = React.useState()
 
-    const authValue = { user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError }
+    const authValue = { user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError, 
+                        loginUser, signupUser, fetchUserFromToken, logoutUser }
 
     function loginUser(credentials) {
         ApiClient.login(credentials)
@@ -25,6 +26,8 @@ export const AuthContextProvider = ({ children }) => {
 
     function logoutUser() {
         ApiClient.logout()
+        console.log(localStorage.getItem("lifetraker_token"))
+        window.location.reload()
     }
 
 

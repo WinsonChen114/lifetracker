@@ -10,7 +10,7 @@ export default function RegistrationPage({ registrationInfo, handleOnChange = ()
 
   React.useEffect(() => {
     // if user is already logged in,
-    // redirect them to the home page
+    // redirect them to the activity page
     if (user?.email) {
       navigate("/activity")
     }

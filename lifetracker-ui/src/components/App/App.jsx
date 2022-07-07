@@ -20,7 +20,6 @@ export default function AppContainer() {
 }
 
 function App() {
-  const {user, setUser} = useAuthContext()
   const [loginInfo, setLoginInfo] = React.useState({
     email: "",
     password: ""

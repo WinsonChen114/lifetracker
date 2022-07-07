@@ -137,12 +137,12 @@ The components in the `App.jsx` file should render the following components (alo
       - [X] Add a `fetchUserFromToken` method that uses the `request` method to send an HTTP request to the `auth/me` endpoint
       - [ ] **Add as many other methods as needed when making API requests**
 
-  - [ ] Create an **`auth`** context:
+  - [X] Create an **`auth`** context:
 
     - [X] First, create a `contexts` directory at the root of the project
     - [X] Inside it, touch the `contexts/auth.jsx` file
     - [X] In that file, define a new `AuthContext` with `React.createContext`
-    - [ ] Use that context to create an `AuthContextProvider` component
+    - [X] Use that context to create an `AuthContextProvider` component
       - [X] The Provider component should create state variables and updaters needed for `user`, `initialized`, `isProcessing`, and `error`.
       - [X] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
         - [X] That hook should check to see if a JWT token exists in local storage under the `lifetracker_token` key
@@ -182,14 +182,14 @@ The components in the `App.jsx` file should render the following components (alo
   - [ ] The **`NavLinks.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with a `className` of `nav-links`
-    - [ ] Should render a `Link` element from `react-router-dom` for:
+    - [X] Should render a `Link` element from `react-router-dom` for:
       - [X] The `/activity` route. It should have a label of `Activity`.
       - [X] The `/nutrition` route. It should have a label of `Nutrition`.
-      - [ ] A route for any other resource page
-    - [ ] If a valid user is logged in:
-      - [ ] It should render an element with the `className` of `logout-button` that calls the `logoutUser` function when clicked.
-        - [ ] That function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
-    - [ ] If no valid user is logged in:
+      - [X] A route for any other resource page
+    - [X] If a valid user is logged in:
+      - [X] It should render an element with the `className` of `logout-button` that calls the `logoutUser` function when clicked.
+        - [X] That function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
+    - [X] If no valid user is logged in:
       - [X] It should render a `Link` element that redirects to the `/login` route with the label `Login`
       - [X] It should render a `Link` element that redirects to the `/register` route with the label `Sign Up`
 
