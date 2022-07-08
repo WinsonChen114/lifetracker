@@ -15,7 +15,7 @@ export default function ActivityFeed({ totalCaloriesPerDay = [], avgCaloriesPerC
         <h4>Average Calories Per Category</h4>
         {
           truncatedAverage.map((item) => {
-            <SummaryStat />
+            <SummaryStat stat={item.avgCaloriesPerCategory} label={"calories"} substat={item.category} />
           })
         }
       </div>
@@ -23,7 +23,7 @@ export default function ActivityFeed({ totalCaloriesPerDay = [], avgCaloriesPerC
         <h4>Average Calories Per Day</h4>
         {
           totalCaloriesPerDay.map((item) => {
-            <SummaryStat />
+            <SummaryStat stat={item.totalCaloriesPerDay} label={"calories"} substate={item.date} />
           })
         }
       </div>

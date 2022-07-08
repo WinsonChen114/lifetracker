@@ -5,7 +5,7 @@ class Activity {
 
     static async calculateDailyCaloriesSummaryStats(user) {
         const results = await db.query(`
-        SELECT  SUM(calories) AS "totalCaloriesPerDay",
+        SELECT  ROUND(SUM(calories), 0) AS "totalCaloriesPerDay",
                 created_at as "date"
         FROM    nutrition
         WHERE user_id = (SELECT id FROM users WHERE email = $1)
