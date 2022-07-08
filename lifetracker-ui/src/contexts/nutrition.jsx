@@ -21,7 +21,7 @@ export const NutritionContextProvider = ({ children }) => {
             setError(null)
             ApiClient.getNutritions()
                 .then((response) => {
-                    console.log("activity context response: ",response)
+                    console.log("nutrition context response: ",response)
                     setNutrition(response)
                     setError(null)
                     setIsLoading(false)

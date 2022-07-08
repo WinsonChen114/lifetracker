@@ -8,14 +8,17 @@ import RegistrationPage from "../RegistrationPage/RegistrationPage"
 import ActivityPage from "../ActivityPage/ActivityPage"
 import NutritionPage from "../NutritionPage/NutritionPage"
 import NotFound from "../NotFound/NotFound"
-import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
-import { ActivityContextProvider, useActivityContext } from "../../contexts/activity"
+import { AuthContextProvider } from "../../contexts/auth"
+import { ActivityContextProvider } from "../../contexts/activity"
+import { NutritionContextProvider } from "../../contexts/nutrition"
 
 export default function AppContainer() {
   return (
     <AuthContextProvider>
       <ActivityContextProvider>
-        <App />
+        <NutritionContextProvider>
+          <App />
+        </NutritionContextProvider>
       </ActivityContextProvider>
     </AuthContextProvider>
   )

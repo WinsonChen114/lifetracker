@@ -61,6 +61,16 @@ class ApiClient {
         let response = await this.request({endpoint: "activity", method: "GET"})
         return response
     }
+
+    async getNutritions() {
+        let response = await this.request({endpoint: "nutrition", method: "GET"})
+        return response
+    }
+
+    async createNutrition(nutritionInfo) {
+        let response = await this.request({endpoint: "nutrition", method: "POST", data: nutritionInfo})
+        return response
+    }
 }
 
 export default new ApiClient("http://localhost:3001")
