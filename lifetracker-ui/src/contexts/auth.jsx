@@ -20,8 +20,8 @@ export const AuthContextProvider = ({ children }) => {
         ApiClient.signup(credentials)
     }
 
-    function fetchUserFromToken(token) {
-        ApiClient.fetchUserFromToken(token)
+    function fetchUserFromToken() {
+        ApiClient.fetchUserFromToken()
     }
 
     function logoutUser() {
@@ -36,7 +36,7 @@ export const AuthContextProvider = ({ children }) => {
             ApiClient.setToken(localStorage.lifetracker_token)
             setIsProcessing(true)
             setError(null)
-            ApiClient.getUserFromToken()
+            ApiClient.fetchUserFromToken()
                 .then((response) => {
                     setUser(response)
                     setError(null)

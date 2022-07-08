@@ -7,14 +7,16 @@ import LoginPage from "../LoginPage/LoginPage"
 import RegistrationPage from "../RegistrationPage/RegistrationPage"
 import ActivityPage from "../ActivityPage/ActivityPage"
 import NutritionPage from "../NutritionPage/NutritionPage"
-import AccessForbidden from "../AccessForbidden/AccessForbidden"
 import NotFound from "../NotFound/NotFound"
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
+import { ActivityContextProvider, useActivityContext } from "../../contexts/activity"
 
 export default function AppContainer() {
   return (
     <AuthContextProvider>
-      <App />
+      <ActivityContextProvider>
+        <App />
+      </ActivityContextProvider>
     </AuthContextProvider>
   )
 }

@@ -213,12 +213,12 @@ The components in the `App.jsx` file should render the following components (alo
       - [X] It should contain the text `"Login"`
       - [X] When clicked, it should call the `loginUser` function
 
-  - [ ] The **`LoginPage.jsx`** component:
+  - [X] The **`LoginPage.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `login-page`
-    - [ ] Using either a custom hook, context, or manually set state, this component should check to see if a user is already logged in
-      - [ ] If the user is already logged in, it should redirect them to the `/activity` page
-      - [ ] If no user is authenticated, it should render the `LoginForm.jsx` component and pass it any props it needs
+    - [X] Using either a custom hook, context, or manually set state, this component should check to see if a user is already logged in
+      - [X] If the user is already logged in, it should redirect them to the `/activity` page
+      - [X] If no user is authenticated, it should render the `LoginForm.jsx` component and pass it any props it needs
 
   - [ ] The **`RegistrationForm.jsx`** component:
 
@@ -261,16 +261,16 @@ The components in the `App.jsx` file should render the following components (alo
       - [X] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
     - [X] Should allow unauthenticated access
 
-  - [ ] The **`activity`** context
+  - [X] The **`activity`** context
 
     - [X] Create a file in the `contexts directory - `/contexts/activity.jsx`
     - [X] In that file, define a new `ActivityContext` with `React.createContext`
-    - [ ] Use that context to create an `ActivityContextProvider` component
-      - [ ] The `ActivityContextProvider` component should create state variables and updaters needed for `activity`, `initialized`, `isLoading`, and `error`.
-      - [ ] It should call the `useAuthContext` hook and check to see if a valid user is logged in.
-      - [ ] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
-        - [ ] That hook should check to see if a user is logged in.
-        - [ ] If a user is logged in...
+    - [X] Use that context to create an `ActivityContextProvider` component
+      - [X] The `ActivityContextProvider` component should create state variables and updaters needed for `activity`, `initialized`, `isLoading`, and `error`.
+      - [X] It should call the `useAuthContext` hook and check to see if a valid user is logged in.
+      - [X] It should have a `React.useEffect` hook that fires when the component is mounted to the screen
+        - [X] That hook should check to see if a user is logged in.
+        - [X] If a user is logged in...
           - [ ] Set the `isLoading` state variable to `true` and the `error` state variable to `null`
           - [ ] Then, it should make a `GET` request to the `/activity` endpoint
             - [ ] If there is an error with the request, it should set a message as the `error` state variable

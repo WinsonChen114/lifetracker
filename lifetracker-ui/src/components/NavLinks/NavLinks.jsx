@@ -5,7 +5,7 @@ import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
 
 
 export default function NavLinks() {
-  const { user, setUser } = useAuthContext()
+  const { user } = useAuthContext()
   const { logoutUser } = useAuthContext()
   return (
     <div className="nav-links">

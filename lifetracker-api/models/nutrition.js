@@ -13,7 +13,7 @@ class Nutrition {
                 n.quantity,
                 n.user_id as "userId",
                 n.created_at AS "createdAt"
-        FROM nutrition AS n
+        FROM nutritions AS n
         WHERE n.user_id = (SELECT id FROM users WHERE email = $1)
         ORDER BY n.created_at DESC`
         , [user.email])
@@ -31,7 +31,7 @@ class Nutrition {
         })
 
         const results = await db.query(`
-        INSERT INTO nutrition(
+        INSERT INTO nutritions(
             name,
             category,
             calories,
@@ -55,7 +55,7 @@ class Nutrition {
                 n.quantity,
                 n.user_id as "userId",
                 n.created_at AS "createdAt"
-        FROM nutrition AS n
+        FROM nutritions AS n
         WHERE n.id = $1`
         , [nutritionId])
 

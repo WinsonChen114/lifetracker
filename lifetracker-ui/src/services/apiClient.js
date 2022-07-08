@@ -56,6 +56,11 @@ class ApiClient {
         this.setToken(null)
         localStorage.setItem(this.tokenName, "")
     }
+
+    async getActivities() {
+        let response = await this.request({endpoint: "/activity", method: "GET"})
+        return response
+    }
 }
 
 export default new ApiClient("http://localhost:3001")
