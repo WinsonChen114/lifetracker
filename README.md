@@ -37,9 +37,10 @@ Implement any of the following features to improve the application:
 - [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
 
 ### Walkthrough Video
-
+Week 4 Demo
 ![Website Demo](./lifetracker-ui/src/assets/website_demo_week_4.gif)
 
+Week 5 Demo
 ![Website DemoWeek 5](./lifetracker-ui/src/assets/website_demo_week_5_v1.gif)
 
 `ADD_EMBEDDED_CODE_HERE`
