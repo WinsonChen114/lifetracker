@@ -40,6 +40,8 @@ Implement any of the following features to improve the application:
 
 ![Website Demo](./lifetracker-ui/src/assets/website_demo_week_4.gif)
 
+![Website DemoWeek 5](./lifetracker-ui/src/assets/website_demo_week_5_v1.gif)
+
 `ADD_EMBEDDED_CODE_HERE`
 
 ### Reflection
