@@ -57,7 +57,7 @@ class ApiClient {
         localStorage.setItem(this.tokenName, "")
     }
 
-    async getActivities() {
+    async getActivitiesStats() {
         let response = await this.request({endpoint: "/activity", method: "GET"})
         return response
     }

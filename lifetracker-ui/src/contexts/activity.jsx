@@ -15,7 +15,7 @@ export const ActivityContextProvider = ({ children }) => {
         if (localStorage.lifetracker_token) {
             setIsLoading(true)
             setError(null)
-            ApiClient.getActivities()
+            ApiClient.getActivitiesStats()
                 .then((response) => {
                     setActivity(response)
                     setError(null)
