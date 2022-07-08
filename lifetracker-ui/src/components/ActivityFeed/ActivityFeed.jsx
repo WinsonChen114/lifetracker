@@ -3,7 +3,7 @@ import "./ActivityFeed.css"
 import SummaryStat from "../SummaryStat/SummaryStat"
 
 export default function ActivityFeed({ totalCaloriesPerDay = [], avgCaloriesPerCategory = [] }) {
-  let limit = avgCaloriesPerCategory.size < 6 ? avgCaloriesPerCategory.size : 6
+  let limit = avgCaloriesPerCategory.length < 6 ? avgCaloriesPerCategory.length : 6
   let truncatedAverage = []
   for (let i = 0; i < limit; i++) {
     truncatedAverage.push(avgCaloriesPerCategory[i])
@@ -14,16 +14,17 @@ export default function ActivityFeed({ totalCaloriesPerDay = [], avgCaloriesPerC
       <div className="per-category">
         <h4>Average Calories Per Category</h4>
         {
-          truncatedAverage.map((item) => {
-            <SummaryStat stat={item.avgCaloriesPerCategory} label={"calories"} substat={item.category} />
+          truncatedAverage.map((item, index) => {
+            return <SummaryStat key={index} stat={item.avgCaloriesPerCategory} label={"calories"} substat={item.category} />
           })
         }
       </div>
       <div className="per-day">
-        <h4>Average Calories Per Day</h4>
+        <h4>Total Calories Per Day</h4>
         {
-          totalCaloriesPerDay.map((item) => {
-            <SummaryStat stat={item.totalCaloriesPerDay} label={"calories"} substate={item.date} />
+          totalCaloriesPerDay.map((item, index) => {
+            console.log(item.date)
+            return <SummaryStat key={index} stat={item.totalCaloriesPerDay} label={"calories"} substat={item.date} />
           })
         }
       </div>

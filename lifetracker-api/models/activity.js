@@ -7,7 +7,7 @@ class Activity {
         const results = await db.query(`
         SELECT  ROUND(SUM(calories), 0) AS "totalCaloriesPerDay",
                 created_at as "date"
-        FROM    nutrition
+        FROM    nutritions
         WHERE user_id = (SELECT id FROM users WHERE email = $1)
         GROUP BY created_at
         ORDER BY created_at ASC
@@ -19,7 +19,7 @@ class Activity {
         const results = await db.query(`
         SELECT  ROUND(AVG(calories), 1) AS "avgCaloriesPerCategory",
                 category
-        FROM nutrition
+        FROM nutritions
         WHERE user_id = (SELECT id FROM users WHERE email = $1)
         GROUP BY category
         ORDER BY category ASC

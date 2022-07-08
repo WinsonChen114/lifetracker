@@ -3,7 +3,6 @@ const router = express.Router()
 const { createUserJwt } = require("../utils/tokens")
 const security = require("../middleware/security")
 const User = require("../models/user")
-const { response } = require("../app")
 
 router.post("/login", async (request, response, next) => {
     try {
@@ -35,7 +34,6 @@ router.get("/me", security.requireAuthenticatedUser, async(request, response, ne
     try {
         const { email } = response.locals.user
         const user = await User.fetchUserbyEmail(email)
-        console.log(user)
         const publicUser = User.makePublicUser(user)
         return response.status(200).json({user: publicUser})
 

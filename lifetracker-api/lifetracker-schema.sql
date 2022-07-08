@@ -16,7 +16,7 @@ CREATE TABLE nutritions (
     calories    INTEGER NOT NULL,
     image_url   TEXT NOT NULL,
     user_id     INTEGER NOT NULL,
-    created_at  TIMESTAMP NOT NULL DEFAULT (SELECT FORMAT (GETDATE(), 'dd/MM/yyyy ')),
+    created_at  DATE NOT NULL DEFAULT CURRENT_DATE,
     quantity    INTEGER NOT NULL DEFAULT 1,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

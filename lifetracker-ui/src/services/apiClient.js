@@ -5,7 +5,7 @@ class ApiClient {
     constructor(remoteHostUrl) {
         this.remoteHostUrl = remoteHostUrl
         this.token = null
-        this.tokenName = "lifetraker_token"
+        this.tokenName = "lifetracker_token"
     }
 
     setToken(token) {
@@ -58,7 +58,7 @@ class ApiClient {
     }
 
     async getActivitiesStats() {
-        let response = await this.request({endpoint: "/activity", method: "GET"})
+        let response = await this.request({endpoint: "activity", method: "GET"})
         return response
     }
 }

@@ -42,7 +42,6 @@ function App() {
       ...loginInfo,
       [field]: value,
     })
-    console.log(loginInfo)
   }
 
   function handleRegistrationInfoOnChange(field, value) {
@@ -50,7 +49,6 @@ function App() {
       ...registrationInfo,
       [field]: value,
     })
-    console.log(registrationInfo)
   }
 
   return (

@@ -3,10 +3,11 @@ const router = express.Router()
 const security = require("../middleware/security")
 const Activity = require("../models/Activity.js")
 
-router.get("/", async (request, response, next) => {
+router.get("/", security.requireAuthenticatedUser, async (request, response, next) => {
     try {
         //Returns an array of all activity entries belonging to the user
         const user = response.locals.user
+        console.log("activity.js user",response.locals,"hsandnasldas")
         const perDay = await Activity.calculateDailyCaloriesSummaryStats(user)
         const perCategory = await Activity.calculatePerCategoryCaloriesSummaryStats(user)
         return response.status(200).json({ nutrition: { calories: { perDay, perCategory } } })

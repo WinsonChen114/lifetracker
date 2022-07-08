@@ -38,7 +38,9 @@ export const AuthContextProvider = ({ children }) => {
             setError(null)
             ApiClient.fetchUserFromToken()
                 .then((response) => {
-                    setUser(response)
+                    console.log("auth response", response)
+                    setUser(response.data.user)
+                    console.log("auth user", user)
                     setError(null)
                     setIsProcessing(false)
                     setInitialized(true)
@@ -49,7 +51,7 @@ export const AuthContextProvider = ({ children }) => {
                     setInitialized(true)
                 })
         }
-    }, [])
+    }, [localStorage.lifetracker_token])
 
     return (
         <AuthContext.Provider value={authValue}>

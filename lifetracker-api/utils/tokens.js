@@ -15,7 +15,6 @@ const createUserJwt = (user) => {
 const validateToken = (token) => {
     try {
         let validated = jwt.verify(token, SECRET_KEY)
-        console.log(validated)
         return validated
     }
     catch (err)

@@ -2,29 +2,27 @@ import * as React from "react"
 import ApiClient from "../services/apiClient"
 import { useAuthContext } from "./auth"
 
-const ActivityContext = React.createContext()
+const NutritionContext = React.createContext()
 
-export const ActivityContextProvider = ({ children }) => {
-    const [activity, setActivity] = React.useState()
+export const NutritionContextProvider = ({ children }) => {
+    const [nutrition, setNutrition] = React.useState()
     const [initialized, setInitialized] = React.useState()
     const [isLoading, setIsLoading] = React.useState()
     const [error, setError] = React.useState()
     const { user } = useAuthContext()
 
-    const activityValue = { activity, setActivity, initialized, setInitialized, isLoading, setIsLoading, error, setError }
+    const nutritionValue = { nutrition, setNutrition, initialized, setInitialized, isLoading, setIsLoading, error, setError }
     
 
     React.useEffect(() => {
-        console.log("activity user",user)
         if (localStorage.lifetracker_token) {
-            console.log("In activity context")
             ApiClient.setToken(localStorage.lifetracker_token)
             setIsLoading(true)
             setError(null)
-            ApiClient.getActivitiesStats()
+            ApiClient.getNutritions()
                 .then((response) => {
                     console.log("activity context response: ",response)
-                    setActivity(response)
+                    setNutrition(response)
                     setError(null)
                     setIsLoading(false)
                     setInitialized(true)
@@ -38,11 +36,11 @@ export const ActivityContextProvider = ({ children }) => {
     }, [localStorage.lifetracker_token])
 
     return (
-        <ActivityContext.Provider value={activityValue}>
+        <NutritionContext.Provider value={nutritionValue}>
             <>{children}</>
-        </ActivityContext.Provider>
+        </NutritionContext.Provider>
     )
 }
 
-export const useActivityContext = () =>
-    React.useContext(ActivityContext)
+export const useNutritionContext = () =>
+    React.useContext(NutritionContext)
