@@ -22,6 +22,10 @@ app.use("/auth", authRoutes)
 app.use("/nutrition", nutritionRoutes)
 app.use("/activity", activityRoutes)
 
+app.get("/", async (request, response, next) => {
+    response.status(200).json({ "ping": "pong" })
+})
+
 app.use((request, response, next) => {
     return next(new NotFoundError())
 
