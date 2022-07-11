@@ -9,33 +9,48 @@ export const AuthContextProvider = ({ children }) => {
     const [isProcessing, setIsProcessing] = React.useState()
     const [error, setError] = React.useState()
     const [testToken, setTestToken] = React.useState()
+    const [loginInfo, setLoginInfo] = React.useState({
+        email: "",
+        password: ""
+    })
+    const [registrationInfo, setRegistrationInfo] = React.useState({
+        email: "",
+        username: "",
+        firstName: "",
+        lastName: "",
+        password: "",
+        confirm: ""
+    }
+
+    )
 
     const authValue = {
         user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError, testToken, setTestToken,
-        loginUser, signupUser, fetchUserFromToken, logoutUser
+        loginInfo, setLoginInfo, registrationInfo, setRegistrationInfo,
+        loginUser, signupUser, fetchUserFromToken, logoutUser, handleLoginInfoOnChange, handleRegistrationInfoOnChange
     }
 
     // function loginUser(credentials) {
     //     return ApiClient.login(credentials)
-        
+
     // }
 
     async function loginUser(credentials) {
         setIsProcessing(true)
-    
+
         const { data, error } = await ApiClient.login(credentials)
         window.location.reload()
         if (error) {
-          setError((e) => ({ ...e, form: error }))
+            setError((e) => ({ ...e, form: error }))
         }
         if (data?.user) {
-          console.log("login auth has data")
-          setUser(data.user)
-          ApiClient.setToken(data.token)
-          console.log("login has token: ",localStorage.lifetracker_token)
+            console.log("login auth has data")
+            setUser(data.user)
+            ApiClient.setToken(data.token)
+            console.log("login has token: ", localStorage.lifetracker_token)
         }
         setIsProcessing(false)
-      }
+    }
 
     function signupUser(credentials) {
         return ApiClient.signup(credentials)
@@ -49,6 +64,20 @@ export const AuthContextProvider = ({ children }) => {
         ApiClient.logout()
         console.log(localStorage.getItem("lifetraker_token"))
         window.location.reload()
+    }
+
+    function handleLoginInfoOnChange(field, value) {
+        setLoginInfo({
+            ...loginInfo,
+            [field]: value,
+        })
+    }
+
+    function handleRegistrationInfoOnChange(field, value) {
+        setRegistrationInfo({
+            ...registrationInfo,
+            [field]: value,
+        })
     }
 
 

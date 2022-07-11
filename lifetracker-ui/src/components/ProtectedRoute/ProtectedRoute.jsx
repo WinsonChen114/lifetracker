@@ -12,7 +12,7 @@ export default function ProtectedRoute({ element }) {
             {initialized && !user && <LoginPage />}
             {!user?.email && <LoginPage message={"Please sign in to access this page"}/>}
             <p>Protected Route</p>
-            <> {element} </>
+            <> {initialized && user?.email && element} </>
         </div>
     )
 }

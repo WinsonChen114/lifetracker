@@ -4,7 +4,7 @@ import RegistrationForm from "../RegistrationForm/RegistrationForm"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
 
-export default function RegistrationPage({ registrationInfo, handleOnChange = () => { } }) {
+export default function RegistrationPage() {
   const { user, setUser } = useAuthContext()
   const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ export default function RegistrationPage({ registrationInfo, handleOnChange = ()
 
   return (
     <div className="registration-page">
-      <RegistrationForm registrationInfo={registrationInfo} handleOnChange={handleOnChange} />
+      <RegistrationForm />
     </div>
   )
 }

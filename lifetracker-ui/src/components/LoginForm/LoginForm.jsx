@@ -3,13 +3,11 @@ import "./LoginForm.css"
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
 import apiClient from "../../services/apiClient"
 
-export default function LoginForm({ loginInfo, handleOnChange = () => { } }) {
+export default function LoginForm({ message }) {
   const [validEmail, setValidEmail] = React.useState(true)
   const [errors, setErrors] = React.useState({})
-  const {isProcessing, setIsProcessing} = useAuthContext()
-  const {user, setUser} = useAuthContext()
-  const {loginUser, setTestToken, testToken} = useAuthContext()
-  
+  const { isProcessing, setIsProcessing, user, setUser, loginUser, loginInfo, handleLoginInfoOnChange } = useAuthContext()
+
 
   function validateEmail(value) {
     //If user has entered text, and the @ symbol is missing, or there is no "." after the @ symbol, it is not a valid email
@@ -38,17 +36,18 @@ export default function LoginForm({ loginInfo, handleOnChange = () => { } }) {
 
   return (
     <div className="login-form">
+      {message && <h4>{message}</h4>}
       <label htmlFor="email">Email</label><br />
       <input className="form-input" name="email" type="email" onChange={(event) => {
-        handleOnChange("email", event.target.value)
+        handleLoginInfoOnChange("email", event.target.value)
         validateEmail(event.target.value)
       }} placeholder="example@gmail.com"></input><br />
       {!validEmail && <p className="error">"{loginInfo.email}" is not a valid email</p>}
 
       <label htmlFor="password">Password</label><br />
-      <input className="form-input" name="password" type="password" onChange={(event) => handleOnChange("password", event.target.value)}></input>
+      <input className="form-input" name="password" type="password" onChange={(event) => handleLoginInfoOnChange("password", event.target.value)}></input>
 
-      <button className="submit-login" type="submit" onClick={() => {loginUser(loginInfo)}} disabled={!validEmail}>Login</button>
+      <button className="submit-login" type="submit" onClick={() => { loginUser(loginInfo) }} disabled={!validEmail}>Login</button>
     </div>
   )
 }

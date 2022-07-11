@@ -4,7 +4,7 @@ import LoginForm from "../LoginForm/LoginForm"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
 
-export default function LoginPage({ loginInfo, handleOnChange = () => { } }) {
+export default function LoginPage({message}) {
   const { user, setUser } = useAuthContext()
   const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ export default function LoginPage({ loginInfo, handleOnChange = () => { } }) {
 
   return (
     <div className="login-page">
-      <LoginForm loginInfo={loginInfo} handleOnChange={handleOnChange} />
+      <LoginForm message = {message}/>
     </div>
   )
 }
