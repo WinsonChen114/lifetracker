@@ -10,30 +10,33 @@ import NotFound from "../NotFound/NotFound"
 export default function NutritionDetail() {
   const { nutritionId } = useParams()
   const [nutritionDetail, setNutritionDetail] = React.useState()
-  const { isLoading, setIsLoading, error, setError, initialized, setInitialized } = useNutritionContext()
+  const { isLoading, setIsLoading, error, setError} = useNutritionContext()
 
   React.useEffect(() => {
+    console.log("In nutrition detail")
     setIsLoading(true)
     apiClient.getNutritionDetail(nutritionId)
       .then((response) => {
+        console.log("nutrition detail response: ",response)
         setNutritionDetail(response.data.nutrition)
         setError(null)
         setIsLoading(false)
-        setInitialized(true)
       })
       .catch((err) => {
+        console.log("Nutrition Detail Error: ", err)
         setError(err)
         setIsLoading(false)
-        setInitialized(true)
       })
   }, [])
+
+  console.log("nutritionDetail:",nutritionDetail)
 
   return (
     <div className="nutrition-detail">
       <p>NutritionDetail</p>
       {isLoading && <Loading />}
-      {initialized && !error && <NutritionCard />}
-      {initialized && error && <NotFound />}
+      {nutritionDetail && !error && <NutritionCard nutrition={nutritionDetail}/>}
+      {error && <NotFound />}
     </div>
   )
 }

@@ -358,7 +358,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [X] If the `isLoading` boolean is `false`, it should render the `NutritionFeed.jsx` component and pass it the appropriate props
     - [X] Near the top of the component, it should render a `Link` component that directs to the `/nutrition/create` route and contains the text: `"Record Nutrition"`
 
-  - [ ] The **`NutritionFeed.jsx`** component:
+  - [X] The **`NutritionFeed.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-feed`
     - [X] It should receive **at least** the following props:
@@ -395,7 +395,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [X] Ensure that the new nutrition entry is stored in the `nutrition` context's `nutritions` array and is displayed in the `NutritionFeed.jsx` component
       - [X] Refetch the `activity` data so that new summary stats will be calculated
 
-  - [ ] The **`NutritionDetail.jsx`** component:
+  - [X] The **`NutritionDetail.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-detail`
     - [X] It should leverage the `useParams` hook from `react-router-dom` to extract the `nutritionId` param from the url
@@ -406,25 +406,25 @@ The components in the `App.jsx` file should render the following components (alo
       - [X] It should store the `nutrition` received by the request in state and then render a `NutritionCard.jsx` component for that nutrition.
       - [X] If no `nutrition` is found with that `id`, it should render the `NotFound.jsx` component
 
-  - [ ] The **`NutritionCard.jsx`** component:
+  - [X] The **`NutritionCard.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-card`
-    - [ ] Should accept **at least** the following props:
-      - [ ] `nutrition` - should be a nutrition entry object containing the following attributes:
-        - [ ] `imageUrl` - (not required)
-        - [ ] `name` - (required)
-        - [ ] `calories` - (required)
-        - [ ] `category` - (required)
-        - [ ] `createdAt` - (required)
-    - [ ] It should render the `name` of the `nutrition` entry inside an element with the `className` of `nutrition-name`
-    - [ ] If the `nutrition` entry has a valid `imageUrl` attribute, it should render an `img` element with the `className` of `nutrition-image` and use that `imageUrl` as its `src`
-    - [ ] It should render the `calories` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-calories`
-    - [ ] It should render the `category` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-category`
-    - [ ] It should render the `createdAt` attribute of the `nutrition` entry in the format `dd/mm/yyyy` - example: `07/02/2022` - inside an element with the `className` of `nutrition-date`.
+    - [X] Should accept **at least** the following props:
+      - [X] `nutrition` - should be a nutrition entry object containing the following attributes:
+        - [X] `imageUrl` - (not required)
+        - [X] `name` - (required)
+        - [X] `calories` - (required)
+        - [X] `category` - (required)
+        - [X] `createdAt` - (required)
+    - [X] It should render the `name` of the `nutrition` entry inside an element with the `className` of `nutrition-name`
+    - [X] If the `nutrition` entry has a valid `imageUrl` attribute, it should render an `img` element with the `className` of `nutrition-image` and use that `imageUrl` as its `src`
+    - [X] It should render the `calories` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-calories`
+    - [X] It should render the `category` attribute of the `nutrition` entry inside an element with the `className` of `nutrition-category`
+    - [X] It should render the `createdAt` attribute of the `nutrition` entry in the format `dd/mm/yyyy` - example: `07/02/2022` - inside an element with the `className` of `nutrition-date`.
 
-  - [ ] DO THE SAME FOR ANY OTHER RESOURCE THAT IS IN THE APPLICATION
+  - [X] DO THE SAME FOR ANY OTHER RESOURCE THAT IS IN THE APPLICATION
 
-    - [ ] Choose whatever resources you want!
+    - [X] Choose whatever resources you want!
 
   - [X] The **`ProtectedRoute.jsx`** component:
     - [X] Create a `ProtectedRoute.jsx` component that uses the `useAuthContext` hook to get access to the `initialized` and `user` variables.

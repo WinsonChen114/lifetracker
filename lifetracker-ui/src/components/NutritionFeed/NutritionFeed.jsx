@@ -11,7 +11,7 @@ export default function NutritionFeed({nutrition = []}) {
       <p>NutritionFeed</p>
       {!nutritionHasItem && <h4 className={"empty-message"}>Nothing here yet</h4>}
       {nutritionHasItem && nutrition.map((item) => {
-        <NutritionCard />
+        return <NutritionCard key={item.id} nutrition={item}/>
       })}
     </div>
   )
