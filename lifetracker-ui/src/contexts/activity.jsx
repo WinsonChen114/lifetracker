@@ -11,11 +11,16 @@ export const ActivityContextProvider = ({ children }) => {
     const [error, setError] = React.useState()
     const { user } = useAuthContext()
 
+
     const activityValue = { activity, setActivity, initialized, setInitialized, isLoading, setIsLoading, error, setError }
-    
+
 
     React.useEffect(() => {
-        console.log("activity user",user)
+        console.log("activity start")
+        console.log("activity user", user)
+        console.log("activity token", localStorage.lifetracker_token)
+
+
         if (localStorage.lifetracker_token) {
             console.log("In activity context")
             ApiClient.setToken(localStorage.lifetracker_token)
@@ -23,7 +28,7 @@ export const ActivityContextProvider = ({ children }) => {
             setError(null)
             ApiClient.getActivitiesStats()
                 .then((response) => {
-                    console.log("activity context response: ",response)
+                    console.log("activity context response: ", response)
                     setActivity(response)
                     setError(null)
                     setIsLoading(false)
@@ -35,6 +40,7 @@ export const ActivityContextProvider = ({ children }) => {
                     setInitialized(true)
                 })
         }
+        console.log("activity end")
     }, [localStorage.lifetracker_token])
 
     return (

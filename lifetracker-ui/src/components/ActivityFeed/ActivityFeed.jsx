@@ -23,7 +23,6 @@ export default function ActivityFeed({ totalCaloriesPerDay = [], avgCaloriesPerC
         <h4>Total Calories Per Day</h4>
         {
           totalCaloriesPerDay.map((item, index) => {
-            console.log(item.date)
             return <SummaryStat key={index} stat={item.totalCaloriesPerDay} label={"calories"} substat={item.date} />
           })
         }

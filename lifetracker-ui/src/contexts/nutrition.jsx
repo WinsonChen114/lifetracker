@@ -15,6 +15,10 @@ export const NutritionContextProvider = ({ children }) => {
     
 
     React.useEffect(() => {
+        console.log("nutrition start")
+        console.log("nutrition user", user)
+        console.log("nutrition token", localStorage.lifetracker_token)
+
         if (localStorage.lifetracker_token) {
             ApiClient.setToken(localStorage.lifetracker_token)
             setIsLoading(true)
@@ -33,6 +37,7 @@ export const NutritionContextProvider = ({ children }) => {
                     setInitialized(true)
                 })
         }
+        console.log("nutrition end")
     }, [localStorage.lifetracker_token])
 
     return (

@@ -8,6 +8,7 @@ export default function LoginForm({ loginInfo, handleOnChange = () => { } }) {
   const [errors, setErrors] = React.useState({})
   const {isProcessing, setIsProcessing} = useAuthContext()
   const {user, setUser} = useAuthContext()
+  const {loginUser, setTestToken, testToken} = useAuthContext()
   
 
   function validateEmail(value) {
@@ -16,20 +17,24 @@ export default function LoginForm({ loginInfo, handleOnChange = () => { } }) {
     setValidEmail(isValid)
   }
 
-  const handleOnSubmit = async () => {
-    setIsProcessing(true)
-    setErrors((e) => ({ ...e, form: null }))
+  // const handleOnSubmit = async () => {
+  //   setIsProcessing(true)
+  //   setErrors((e) => ({ ...e, form: null }))
 
-    const { data, error } = await apiClient.login(loginInfo)
-    if (error) {
-      setErrors((e) => ({ ...e, form: error }))
-    }
-    if (data?.user) {
-      setUser(data.user)
-      apiClient.setToken(data.token)
-    }
-    setIsProcessing(false)
-  }
+  //   const { data, error } = await loginUser(loginInfo)
+  //   window.location.reload()
+  //   if (error) {
+  //     setErrors((e) => ({ ...e, form: error }))
+  //   }
+  //   if (data?.user) {
+  //     console.log("login has data")
+  //     setUser(data.user)
+  //     apiClient.setToken(data.token)
+  //     console.log("token token token", testToken)
+  //     console.log("login has token: ",localStorage.lifetracker_token)
+  //   }
+  //   setIsProcessing(false)
+  // }
 
   return (
     <div className="login-form">
@@ -43,7 +48,7 @@ export default function LoginForm({ loginInfo, handleOnChange = () => { } }) {
       <label htmlFor="password">Password</label><br />
       <input className="form-input" name="password" type="password" onChange={(event) => handleOnChange("password", event.target.value)}></input>
 
-      <button className="submit-login" type="submit" onClick={handleOnSubmit} disabled={!validEmail}>Login</button>
+      <button className="submit-login" type="submit" onClick={() => {loginUser(loginInfo)}} disabled={!validEmail}>Login</button>
     </div>
   )
 }

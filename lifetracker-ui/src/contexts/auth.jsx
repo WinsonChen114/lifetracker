@@ -8,20 +8,41 @@ export const AuthContextProvider = ({ children }) => {
     const [initialized, setInitialized] = React.useState()
     const [isProcessing, setIsProcessing] = React.useState()
     const [error, setError] = React.useState()
+    const [testToken, setTestToken] = React.useState()
 
-    const authValue = { user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError, 
-                        loginUser, signupUser, fetchUserFromToken, logoutUser }
-
-    function loginUser(credentials) {
-        ApiClient.login(credentials)
+    const authValue = {
+        user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError, testToken, setTestToken,
+        loginUser, signupUser, fetchUserFromToken, logoutUser
     }
 
+    // function loginUser(credentials) {
+    //     return ApiClient.login(credentials)
+        
+    // }
+
+    async function loginUser(credentials) {
+        setIsProcessing(true)
+    
+        const { data, error } = await ApiClient.login(credentials)
+        window.location.reload()
+        if (error) {
+          setError((e) => ({ ...e, form: error }))
+        }
+        if (data?.user) {
+          console.log("login auth has data")
+          setUser(data.user)
+          ApiClient.setToken(data.token)
+          console.log("login has token: ",localStorage.lifetracker_token)
+        }
+        setIsProcessing(false)
+      }
+
     function signupUser(credentials) {
-        ApiClient.signup(credentials)
+        return ApiClient.signup(credentials)
     }
 
     function fetchUserFromToken() {
-        ApiClient.fetchUserFromToken()
+        return ApiClient.fetchUserFromToken()
     }
 
     function logoutUser() {
@@ -32,15 +53,18 @@ export const AuthContextProvider = ({ children }) => {
 
 
     React.useEffect(() => {
+        console.log("auth start")
+        console.log("auth user", user)
+        console.log("auth token", localStorage.lifetracker_token)
+
         if (localStorage.lifetracker_token) {
             ApiClient.setToken(localStorage.lifetracker_token)
             setIsProcessing(true)
             setError(null)
             ApiClient.fetchUserFromToken()
                 .then((response) => {
-                    console.log("auth response", response)
+                    console.log("auth context response", response)
                     setUser(response.data.user)
-                    console.log("auth user", user)
                     setError(null)
                     setIsProcessing(false)
                     setInitialized(true)
@@ -51,6 +75,7 @@ export const AuthContextProvider = ({ children }) => {
                     setInitialized(true)
                 })
         }
+        console.log("auth end")
     }, [localStorage.lifetracker_token])
 
     return (

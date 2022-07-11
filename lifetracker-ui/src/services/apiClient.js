@@ -39,6 +39,7 @@ class ApiClient {
 
     async login(credentials) {
         let response = await this.request({endpoint: "auth/login", method: "POST", data: credentials})
+        console.log("api client login response", response)
         return response
     }
 
