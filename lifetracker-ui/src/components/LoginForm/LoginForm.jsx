@@ -1,7 +1,6 @@
 import * as React from "react"
 import "./LoginForm.css"
 import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
-import apiClient from "../../services/apiClient"
 
 export default function LoginForm({ message }) {
   const [validEmail, setValidEmail] = React.useState(true)
@@ -14,25 +13,6 @@ export default function LoginForm({ message }) {
     let isValid = value.length == 0 || (value.indexOf("@") != -1 && value.indexOf(".", value.indexOf("@")) != -1)
     setValidEmail(isValid)
   }
-
-  // const handleOnSubmit = async () => {
-  //   setIsProcessing(true)
-  //   setErrors((e) => ({ ...e, form: null }))
-
-  //   const { data, error } = await loginUser(loginInfo)
-  //   window.location.reload()
-  //   if (error) {
-  //     setErrors((e) => ({ ...e, form: error }))
-  //   }
-  //   if (data?.user) {
-  //     console.log("login has data")
-  //     setUser(data.user)
-  //     apiClient.setToken(data.token)
-  //     console.log("token token token", testToken)
-  //     console.log("login has token: ",localStorage.lifetracker_token)
-  //   }
-  //   setIsProcessing(false)
-  // }
 
   return (
     <div className="login-form">

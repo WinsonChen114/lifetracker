@@ -19,6 +19,7 @@ export default function RegistrationForm() {
     setValidPasswords(isValid)
   }
 
+  // TODO: REFACTOR LATER TO PUT INSIDE AUTH CONTEXT
   const handleOnSubmit = async () => {
     setIsProcessing(true)
     setErrors((e) => ({ ...e, form: null }))

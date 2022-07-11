@@ -1,6 +1,5 @@
 import * as React from "react"
 import "./ProtectedRoute.css"
-import NutritionForm from "components/NutritionForm/NutritionForm"
 import { useAuthContext } from "../../contexts/auth"
 import LoginPage from "../LoginPage/LoginPage"
 

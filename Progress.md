@@ -426,13 +426,13 @@ The components in the `App.jsx` file should render the following components (alo
 
     - [ ] Choose whatever resources you want!
 
-  - [ ] The **`ProtectedRoute.jsx`** component:
-    - [ ] Create a `ProtectedRoute.jsx` component that uses the `useAuthContext` hook to get access to the `initialized` and `user` variables.
-    - [ ] It should accept a component as the `element` prop and render that component.
-    - [ ] If the application isn't currently loading and no user is found, it should render the `LoginPage.jsx` component instead of rendering the route the user intended to go to. This way, we can ensure that only authenticated users can access the provided component.
-    - [ ] Any unauthenticated user should be shown the `LoginPage.jsx` component with a message indicating that they need to authenticate first
-    - [ ] Update the `LoginPage.jsx` component so that it accepts a `message` prop that is displayed in the login form - if it exists.
-    - [ ] Make sure to protect the entire `ActivityPage` component route and the `NutritionPage` component route (along with any other private resource pages). Don't protect the `LandingPage` component or the `LoginPage` and `RegistrationPage` components, as they should be public.
+  - [X] The **`ProtectedRoute.jsx`** component:
+    - [X] Create a `ProtectedRoute.jsx` component that uses the `useAuthContext` hook to get access to the `initialized` and `user` variables.
+    - [X] It should accept a component as the `element` prop and render that component.
+    - [X] If the application isn't currently loading and no user is found, it should render the `LoginPage.jsx` component instead of rendering the route the user intended to go to. This way, we can ensure that only authenticated users can access the provided component.
+    - [X] Any unauthenticated user should be shown the `LoginPage.jsx` component with a message indicating that they need to authenticate first
+    - [X] Update the `LoginPage.jsx` component so that it accepts a `message` prop that is displayed in the login form - if it exists.
+    - [X] Make sure to protect the entire `ActivityPage` component route and the `NutritionPage` component route (along with any other private resource pages). Don't protect the `LandingPage` component or the `LoginPage` and `RegistrationPage` components, as they should be public.
 
 ### API
 
