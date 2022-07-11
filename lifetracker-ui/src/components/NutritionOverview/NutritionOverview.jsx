@@ -6,7 +6,8 @@ import Loading from "../Loading/Loading"
 import NutritionFeed from "../NutritionFeed/NutritionFeed"
 
 export default function NutritionOverview() {
-  const { error, isLoading } = useNutritionContext
+  const { error, isLoading } = useNutritionContext()
+  const {nutrition} = useNutritionContext()
   return (
     <div className="nutrition-overview">
       <p>NutritionOverview</p>
@@ -15,7 +16,7 @@ export default function NutritionOverview() {
           <p>Record Nutrition</p>
         </Link>
         {isLoading && <Loading />}
-        {!isLoading && <NutritionFeed />}
+        {!isLoading && <NutritionFeed nutrition={nutrition.data.nutritions}/>}
       </>}
       {error &&
         <h4 className="error">{error}</h4>}

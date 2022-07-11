@@ -5,7 +5,7 @@ import { AuthContextProvider, useAuthContext } from "../../contexts/auth"
 export default function LoginForm({ message }) {
   const [validEmail, setValidEmail] = React.useState(true)
   const [errors, setErrors] = React.useState({})
-  const { isProcessing, setIsProcessing, user, setUser, loginUser, loginInfo, handleLoginInfoOnChange } = useAuthContext()
+  const {loginUser, loginInfo, handleLoginInfoOnChange } = useAuthContext()
 
 
   function validateEmail(value) {
@@ -27,7 +27,7 @@ export default function LoginForm({ message }) {
       <label htmlFor="password">Password</label><br />
       <input className="form-input" name="password" type="password" onChange={(event) => handleLoginInfoOnChange("password", event.target.value)}></input>
 
-      <button className="submit-login" type="submit" onClick={() => { loginUser(loginInfo) }} disabled={!validEmail}>Login</button>
+      <button className="submit-login" type="submit" onClick={loginUser} disabled={!validEmail}>Login</button>
     </div>
   )
 }

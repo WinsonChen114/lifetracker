@@ -361,13 +361,13 @@ The components in the `App.jsx` file should render the following components (alo
   - [ ] The **`NutritionFeed.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-feed`
-    - [ ] It should receive **at least** the following props:
-      - [ ] `nutritions` - an array of `nutrition` items
-    - [ ] If the `nutritions` array has no items in it, it should render an empty message that says `Nothing here yet` inside an element with the `className` of `empty-message`
-    - [ ] If the `nutritions` array does have items in it:
-      - [ ] For each item in the `nutritions` array, it should render a `NutritionCard.jsx` component
+    - [X] It should receive **at least** the following props:
+      - [X] `nutritions` - an array of `nutrition` items
+    - [X] If the `nutritions` array has no items in it, it should render an empty message that says `Nothing here yet` inside an element with the `className` of `empty-message`
+    - [X] If the `nutritions` array does have items in it:
+      - [X] For each item in the `nutritions` array, it should render a `NutritionCard.jsx` component
 
-  - [ ] The **`NutritionNew.jsx`** component:
+  - [X] The **`NutritionNew.jsx`** component:
 
     - [X] Should render JSX that is wrapped by an element with the `className` of `nutrition-new`
     - [X] Should render the `NutritionForm.jsx` component and pass it the appropriate props
@@ -380,11 +380,11 @@ The components in the `App.jsx` file should render the following components (alo
       - [X] `calories` - number of calories in the nutrition item (defaults to 1)
       - [X] `imageUrl` - the `url` of an image to show for this nutrition item (defaults to an empty string)
       - [X] `category` - the category that this nutrition item belongs to, like fruit, meat, soda, snack, nuts, etc. (defaults to an empty string)
-    - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`name`, `calories`, `imageUrl`, `category`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
-      - [ ] `value` - the current value of the `input` element
-      - [ ] `onChange` - the `onChange` handler function
+    - [X] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
+      - [X] `name` - the `name` of the `input` field being rendered (`name`, `calories`, `imageUrl`, `category`)
+      - [X] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [X] `value` - the current value of the `input` element
+      - [X] `onChange` - the `onChange` handler function
     - [ ] The component should gracefully handle errors:
       - [ ] If any of the required fields are left blank, there should be an error message inside of an element with the `className` of `error` indicating which fields are required.
       - [ ] If the user has attempted to create a nutrition entry and gotten a `400` or `422` error, then that message should be displayed inside an element with the `className` of `error`

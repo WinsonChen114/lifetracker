@@ -35,10 +35,10 @@ export const AuthContextProvider = ({ children }) => {
 
     // }
 
-    async function loginUser(credentials) {
+    async function loginUser() {
         setIsProcessing(true)
 
-        const { data, error } = await ApiClient.login(credentials)
+        const { data, error } = await ApiClient.login(loginInfo)
         window.location.reload()
         if (error) {
             setError((e) => ({ ...e, form: error }))

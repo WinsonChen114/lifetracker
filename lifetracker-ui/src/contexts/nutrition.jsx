@@ -10,8 +10,12 @@ export const NutritionContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = React.useState()
     const [error, setError] = React.useState()
     const { user } = useAuthContext()
+    const [nutritionInfo, setNutritionInfo] = React.useState({})
 
-    const nutritionValue = { nutrition, setNutrition, initialized, setInitialized, isLoading, setIsLoading, error, setError }
+
+
+    const nutritionValue = { nutrition, setNutrition, initialized, setInitialized, isLoading, setIsLoading, error, setError, 
+        nutritionInfo, handleNutritionInfoOnChange, createNutrition }
     
 
     React.useEffect(() => {
@@ -39,6 +43,25 @@ export const NutritionContextProvider = ({ children }) => {
         }
         console.log("nutrition end")
     }, [localStorage.lifetracker_token])
+
+    function handleNutritionInfoOnChange(field, value) {
+        setNutritionInfo({
+            ...nutritionInfo,
+            [field]: value,
+        })
+    }
+
+    async function createNutrition() {
+        const { data, error } = await ApiClient.createNutrition(nutritionInfo)
+        window.location.reload()
+        if (error) {
+            setError((e) => ({ ...e, form: error }))
+        }
+        if (data?.nutrition) {
+            console.log("create nutrition has data")
+            setNutrition([...nutrition, data.nutrition])
+        }
+    }
 
     return (
         <NutritionContext.Provider value={nutritionValue}>
