@@ -1,10 +1,3 @@
-
-const PRODUCTION_API_BASE_URL = "" //Fill in later when deployed
+const PRODUCTION_API_BASE_URL = "https://lifetracker-api-winsonc.herokuapp.com"
 const DEVELOPMENT_API_BASE_URL = "http://localhost:3001"
-const API_BASE_URL = process.env.NODE_ENV == "production" ? PRODUCTION_API_BASE_URL : DEVELOPMENT_API_BASE_URL
-
-module.exports = {
-    PRODUCTION_API_BASE_URL,
-    DEVELOPMENT_API_BASE_URL,
-    API_BASE_URL
-}
+export const API_BASE_URL = process.env.NODE_ENV == "production" ? PRODUCTION_API_BASE_URL : DEVELOPMENT_API_BASE_URL

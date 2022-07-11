@@ -8,7 +8,6 @@ export default function NutritionFeed({nutrition = []}) {
   const nutritionHasItem = nutrition.length > 0
   return (
     <div className="nutrition-feed">
-      <p>NutritionFeed</p>
       {!nutritionHasItem && <h4 className={"empty-message"}>Nothing here yet</h4>}
       {nutritionHasItem && nutrition.map((item) => {
         return <NutritionCard key={item.id} nutrition={item}/>

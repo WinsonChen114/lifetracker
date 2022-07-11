@@ -23,7 +23,6 @@ export default function NutritionPage() {
   
   return (
     <div className="nutrition-page">
-      <p>NutritionPage</p>
       {!user?.email && <AccessForbidden />}
       <Routes>
         <Route path="/" element={<NutritionOverview />} />

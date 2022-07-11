@@ -1,5 +1,5 @@
 import axios from "axios"
-//import { API_BASE_URL } from "../../constants"
+import { API_BASE_URL } from "../../constants"
 
 class ApiClient {
     constructor(remoteHostUrl) {
@@ -80,4 +80,4 @@ class ApiClient {
     }
 }
 
-export default new ApiClient(process?.env?.REACT_APP_REMOTE_HOST_URL || "http://localhost:3001")
+export default new ApiClient(API_BASE_URL || "http://localhost:3001")

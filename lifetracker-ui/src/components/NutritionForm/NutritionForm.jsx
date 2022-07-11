@@ -6,7 +6,6 @@ export default function NutritionForm() {
   const {createNutrition, handleNutritionInfoOnChange } = useNutritionContext()
   return (
     <div className="nutrition-form">
-      <p>NutritionForm</p>
       <label htmlFor="name">Name</label><br />
       <input className="form-input" name="name" type="text" onChange={(event) => {
         handleNutritionInfoOnChange("name", event.target.value)

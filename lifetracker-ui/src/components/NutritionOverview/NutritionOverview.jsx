@@ -10,7 +10,6 @@ export default function NutritionOverview() {
   const {nutrition} = useNutritionContext()
   return (
     <div className="nutrition-overview">
-      <p>NutritionOverview</p>
       {!error && <>
         <Link to="/nutrition/create">
           <p>Record Nutrition</p>

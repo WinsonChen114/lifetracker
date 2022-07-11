@@ -24,7 +24,6 @@ export default function ActivityPage() {
 
   return (
     <div className="activity-page">
-      <p>ActivityPage</p>
       {user?.email && isProcessing && <Loading />}
       {/* {console.log(activity)} */}
       {user?.email && !isProcessing && <ActivityFeed totalCaloriesPerDay={activity.data.nutrition.calories.perDay} avgCaloriesPerCategory={activity.data.nutrition.calories.perCategory} />}
