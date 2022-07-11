@@ -1,11 +1,11 @@
 import * as React from "react"
 import { useParams } from 'react-router-dom'
 import "./NutritionDetail.css"
-import apiClient from "services/apiClient"
+import apiClient from "../../services/apiClient"
 import { useNutritionContext } from "../../contexts/nutrition"
-import Loading from "../components/Loading/Loading"
-import NutritionCard from "../components/NutritionCard/NutritionCard"
-import NotFound from "../components/NotFound/NotFound"
+import Loading from "../Loading/Loading"
+import NutritionCard from "../NutritionCard/NutritionCard"
+import NotFound from "../NotFound/NotFound"
 
 export default function NutritionDetail() {
   const { nutritionId } = useParams()
